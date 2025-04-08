@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mailbox.addEventListener("click", () => {
         mailboxAlert = "no unread messages";
+        mailbox.classList.remove("alert");
+        mailbox.style.backgroundImage = "url('./src/maildefault.png')";
         loadMailPage()
     });
 });
