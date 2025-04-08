@@ -6,6 +6,7 @@ let navButtonArray = Array.from(navButtons);
 let mailbox = document.getElementById("mailbox");
 let about = document.getElementById("about");
 let backgroundMusic = document.getElementById("backgroundMusic");
+let musicButton = document.getElementById("musicButton");
 
 let backgroundOverlay = document.getElementById("backgroundOverlay");
 let overlayContainer = document.getElementById("overlayContainer");
@@ -14,19 +15,20 @@ let folderImageContainer;
 
 let aboutText;
 
+let isPlaying = false;
+
 let mailboxAlert = "there's a message";
 let messageOpen;
 let screen = "home";
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     backgroundMusic.load();  // Manually load the audio file
-
-    mainScreen.addEventListener("click", () => {
-        backgroundMusic.muted = false;
-        if (backgroundMusic.paused) { backgroundMusic.play() };
+    musicButton.addEventListener("click", () => {
+        console.log("hello")
+        togglePlay();
     })
+
 
     titleText.addEventListener("click", () => {
         loadHomePage();
@@ -52,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+
     mailbox.addEventListener("mouseover", () => {
         tooltip.innerHTML = mailboxAlert;
         tooltip.style.opacity = 1;
@@ -59,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mailbox.addEventListener("mouseleave", () => {
         tooltip.style.opacity = "0";
     });
-
     mailbox.addEventListener("click", () => {
         mailboxAlert = "no unread messages";
         mailbox.classList.remove("alert");
@@ -73,6 +76,19 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 });
 
+
+function togglePlay() {
+    if (isPlaying) {
+        backgroundMusic.pause();
+        musicButton.style.backgroundImage = "url('./src/paused.png')";
+        console.log("pauseeeee")
+    } else {
+        backgroundMusic.play();
+        musicButton.style.backgroundImage = "url('./src/playing.png')";
+        console.log("play")
+    }
+    isPlaying = !isPlaying;
+}
 
 function loadHomePage() {
     clearScreen();
@@ -121,6 +137,7 @@ function loadHomePage() {
 
 function loadMailPage() {
     backgroundOverlay.style.opacity = 0.5;
+    messageOpen = "";
 
     let mailOverlay = document.createElement("div");
     mailOverlay.id = "mailOverlay";
@@ -152,6 +169,12 @@ function loadMailPage() {
         else if (messageOpen == "wemissyou") {
             tooltip.innerHTML = "seems like it's been a while since the last upload."
         }
+        else if (messageOpen == "sticky") {
+            tooltip.innerHTML = "a potential ally...?"
+        }
+        else {
+            tooltip.innerHTML = "is it okay to read these?"
+        }
 
         tooltip.style.opacity = 1;
     })
@@ -169,8 +192,6 @@ function loadMailPage() {
         mailItem.classList.add("mailItem");
         mailItem.id = "mailItem" + (i + 1);
 
-        // On mouseover (currently empty, but you can add your logic here)
-        mailItem.addEventListener("mouseover", () => { });
 
         mailContainer.appendChild(mailItem);
 
@@ -188,6 +209,29 @@ function loadMailPage() {
 
             });
 
+        }
+        else if (i == 2) {
+            mailItem.addEventListener("click", () => {
+                messageOpen = "sticky"
+
+                // Clear existing text content
+                mailContents.textContent = '';
+
+                // Fetch and type the new text
+                fetch('./src/sticky.txt')
+                    .then(response => response.text())
+                    .then(text => mailContents.innerHTML = text)
+                    .catch(err => console.error('Error loading file:', err));
+
+            });
+
+            mailItem.addEventListener("mouseover", () => {
+                tooltip.innerHTML = "once a powerful symbol";
+                tooltip.style.opacity = 1;
+            })
+            mailItem.addEventListener("mouseleave", () => {
+                tooltip.style.opacity = "0";
+            });
         }
         else if (i == 3) {
             mailItem.addEventListener("click", () => {
@@ -257,8 +301,9 @@ function loadMailPage() {
 
 function loadAboutPage() {
     clearScreen();
-
-    mainScreen.style.overflowY = "scroll";
+    let aboutPage = document.createElement("div");
+    aboutPage.id = "aboutPage";
+    aboutPage.style.overflowY = "scroll";
 
     aboutText = document.createElement("div");
     aboutText.id = "aboutText";
@@ -268,14 +313,14 @@ function loadAboutPage() {
         .then(text => aboutText.innerHTML = text)
         .catch(err => console.error('Error loading file:', err));
 
-    mainScreen.appendChild(aboutText);
+    aboutPage.appendChild(aboutText);
 
     let founderContainer = document.createElement("div");
     founderContainer.id = "founder";
 
     navButtonArray.forEach((button) => {
         founderContainer.addEventListener("mouseover", () => {
-            tooltip.innerHTML = "a cloud...";
+            tooltip.innerHTML = "<b>the </b> cloud...";
             tooltip.style.opacity = 1;
         })
         founderContainer.addEventListener("mouseleave", () => {
@@ -295,9 +340,8 @@ function loadAboutPage() {
 
 
 
-    mainScreen.appendChild(founderContainer);
-    mainScreen.style.justifyContent = "start";
-    mainScreen.style.alignItems = "center";
+    aboutPage.appendChild(founderContainer);
+    mainScreen.appendChild(aboutPage);
 }
 
 function typeText(text) {
@@ -316,7 +360,7 @@ function typeText(text) {
 }
 
 function clearScreen() {
-    while (mainScreen.children.length > 1) {
+    while (mainScreen.children.length > 2) {
         mainScreen.removeChild(mainScreen.lastChild);
     }
 }

@@ -13,13 +13,28 @@
 </head>
 
 <body>
-    <audio id="backgroundMusic" preload="auto" loop muted src="./src/RioTuEdIo.mp3"></audio>
+    <audio id="backgroundMusic" preload="auto" loop src="./src/RioTuEdIo.mp3"></audio>
     <div id="navbar">
         <div class="navButton">--</div>
         <div class="navButton"></div>
         <div class="navButton">X</div>
     </div>
     <div id="mainscreen">
+        <div id="announcementbar">
+            <div class="marqueeWrapper">
+                <div class="marquee">
+                    <div class="marqueeItem"><b>Interruption incoming.</b> Maintenance window: June 4, 01:00–02:00 UTC.
+                        Stay still.</div>
+                    <div class="marqueeItem">You left something behind. We kept it.</div>
+                    <div class="marqueeItem"><b>Reminder:</b> Visit your Memory Garden to keep your archive active.
+                    </div>
+                    <div class="marqueeItem">Hellooooooooo?</div>
+                    <div class="marqueeItem">Don’t worry. We saved the important parts.</div>
+                    <div class="marqueeItem">Every click leaves a trace.</div>
+                </div>
+            </div>
+            <div id="musicButton"></div>
+        </div>
         <div id="headerBar">
             <div id="titleText">Memory Garden</div>
             <div id="mailbox" class="headerButton alert"></div>
