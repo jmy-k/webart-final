@@ -1,0 +1,27 @@
+<b>Partial Data Loss — Memory Garden Service Interruption</b>
+
+Dearest Gardener,
+
+We regret to inform you that due to an unexpected data corruption event on our central servers, a significant portion of archived <i>Memory Gardens</i> has been irretrievably lost.
+
+The incident occurred during a routine maintenance protocol on <b>Cluster 07-Delta</b>, affecting memory files uploaded between <b>Cycle 3.19</b> and <b>Cycle 4.02</b>.
+
+<div class="calloutText">If you are not a subscriber of <i>Memory Bloom+</i>, you will most likely have lost most of your data.
+
+Gardens that were most frequently visited and actively maintained by their owners have remained intact.
+</div>
+We believe the organic nature of memory, like any living system, thrives through regular attention.</div>
+
+We understand that your memories are more than just data — they are moments, stories, and reflections of self. We extend our sincere apologies for this disruption.
+
+<div class="calloutText">
+As a gesture of goodwill, affected users will receive:
+
+    <li><b>3 months of <i>Memory Bloom+</i> (premium archival and personalization services)</b></li>
+    <li><b>A chance to recover partial memory fragments through our <i>Recollection Tool (Beta)</i>, available next week</b></li>
+</div>
+
+We remain committed to preserving the sanctity of your digital legacy, and thank you for your continued trust as we grow forward.
+
+With care,
+The Memory Garden Team

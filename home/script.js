@@ -1,3 +1,4 @@
+let body = document.body;
 let mainScreen = document.getElementById("mainscreen");
 let screen = "home";
 let tooltip = document.getElementById("tooltip");
@@ -6,6 +7,9 @@ let mailbox = document.getElementById("mailbox");
 let navButtonArray = Array.from(navButtons);
 let folderImageContainer;
 let mailboxAlert = "there's a message";
+let backgroundOverlay = document.getElementById("backgroundOverlay");
+let overlayContainer = document.getElementById("overlayContainer");
+let messageOpen;
 
 document.addEventListener("DOMContentLoaded", function () {
     if (screen == "home") {
@@ -36,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mailbox.addEventListener("click", () => {
         mailboxAlert = "no unread messages";
+        loadMailPage()
     });
 });
 
@@ -74,17 +79,134 @@ function loadHomePage() {
 }
 
 function loadMailPage() {
+    backgroundOverlay.style.opacity = 0.5;
+
+    let mailOverlay = document.createElement("div");
+    mailOverlay.id = "mailOverlay";
+    overlayContainer.appendChild(mailOverlay);
+
+    let mailHeader = document.createElement("div");
+    mailHeader.id = "mailHeader";
+    mailOverlay.appendChild(mailHeader);
+
+    let closeButton = document.createElement("div");
+    closeButton.id = "closeMailbox";
+    closeButton.innerHTML = "X";
+    closeButton.addEventListener("click", () => {
+        overlayContainer.removeChild(mailOverlay);
+        backgroundOverlay.style.opacity = 0;
+    })
+
+    mailOverlay.appendChild(closeButton);
+
+    let mailContents = document.createElement("div");
+    mailContents.id = "mailContents";
+    mailContents.addEventListener("mouseover", () => {
+        if (messageOpen == "joinnow") {
+            tooltip.innerHTML = "yikes. don't think we're missing out much.";
+        }
+        else if (messageOpen == "apology") {
+            tooltip.innerHTML = "i guess some memories are lost forever.";
+        }
+
+        tooltip.style.opacity = 1;
+    })
+    mailContents.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = "0";
+    });
+
     let mailContainer = document.createElement("div");
     mailContainer.id = "mailContainer";
-    document.appendChild(mailContainer);
 
-    let mailTitle = document.createElement("h1");
-    mailTitle.innerHTML = "Mail";
-    mailTitle.classList.add("fade-in");
-    mailContainer.appendChild(mailTitle);
+    let typingInterval;  // Variable to store the interval ID
 
-    let mailContent = document.createElement("p");
-    mailContent.innerHTML = "You have no unread messages.";
-    mailContent.classList.add("fade-in");
-    mailContainer.appendChild(mailContent);
+    for (let i = 0; i < 5; i++) {
+        let mailItem = document.createElement("div");
+        mailItem.classList.add("mailItem");
+        mailItem.id = "mailItem" + (i + 1);
+
+        // On mouseover (currently empty, but you can add your logic here)
+        mailItem.addEventListener("mouseover", () => { });
+
+        mailContainer.appendChild(mailItem);
+
+        // For the alert item (mailItem 5 in this case)
+        if (i == 0) {
+            mailItem.addEventListener("click", () => {
+                messageOpen = "joinnow"
+                // Clear existing text content
+                mailContents.textContent = '';
+                // Fetch and type the new text
+                fetch('./src/joinnow.txt')
+                    .then(response => response.text())
+                    .then(text => mailContents.innerHTML = text)
+                    .catch(err => console.error('Error loading file:', err));
+
+            });
+
+        }
+        if (i == 4) {
+            mailItem.classList.add("alert");
+
+            // Add click event to reset and type text
+            mailItem.addEventListener("click", () => {
+                messageOpen = "apology"
+
+                // Clear existing text content
+                mailContents.textContent = '';
+                mailItem.classList.remove("alert");
+
+                // Fetch and type the new text
+                fetch('./src/apology.txt')
+                    .then(response => response.text())
+                    .then(text => mailContents.innerHTML = text)
+                    .catch(err => console.error('Error loading file:', err));
+
+            });
+
+            mailItem.addEventListener("mouseover", () => {
+                tooltip.innerHTML = "latest message...";
+                tooltip.style.opacity = 1;
+            })
+            mailItem.addEventListener("mouseleave", () => {
+                tooltip.style.opacity = "0";
+            });
+        }
+    }
+
+    // Typing function
+    function typeText(text) {
+        const target = document.getElementById('mailContents');  // Adjust to your target element
+        let i = 0;
+
+        typingInterval = setInterval(() => {
+            if (i < text.length) {
+                target.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingInterval);  // Stop the typing when the text is done
+            }
+        }, 30);  // 30ms per character
+    }
+
+
+
+
+    mailOverlay.appendChild(mailContainer);
+    mailOverlay.appendChild(mailContents);
+}
+
+function typeText(text) {
+    const target = document.getElementById('mailContents');
+    let i = 0;
+
+    function typeNextChar() {
+        if (i < text.length) {
+            target.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeNextChar, 30); // 30ms delay per character
+        }
+    }
+
+    typeNextChar();
 }

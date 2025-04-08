@@ -9,6 +9,36 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 16px;
+    /* Width of the vertical scrollbar */
+    height: 16px;
+    /* Height of the horizontal scrollbar */
+}
+
+/* The part of the scrollbar that the user can interact with (the handle) */
+::-webkit-scrollbar-thumb {
+    background-color: #3b3b3b;
+
+    /* Rounded edges */
+    border: 4px solid #2f2f2f;
+    /* Border around the thumb (retro blocky look) */
+}
+
+/* The track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: #8c8c8c;
+
+    /* Match the thumb's border-radius */
+}
+
+/* Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
+    /* Lighter grey when hovering over the thumb */
+}
+
 
 
 * {
@@ -58,18 +88,28 @@ video {
     z-index: 1000;
 }
 
-#overlay {
+#overlay,
+#backgroundOverlay {
     position: absolute;
     top: 0;
-    background-image: url('../src/dither.png');
-    background-size: 80%;
-    background-position: center;
-    background-repeat: repeat;
     opacity: 0.1;
 
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+}
+
+#overlay {
+    background-image: url('../src/dither.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+#backgroundOverlay {
+    background-color: black;
+    transition: all 0.5s ease;
+    left: 0;
 }
 
 #navbar {
@@ -313,4 +353,151 @@ video {
 .folderImage:hover {
     transform: translateY(-2px);
     cursor: pointer;
+}
+
+#mailOverlay {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #D8F2EF;
+    border: 1px solid black;
+    box-shadow: inset -1px -1px 4px 0px rgba(0, 0, 0, 0.75);
+
+    padding: 5vw 15vh;
+    border-radius: 500px;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+#mailHeader {
+    width: 100%;
+    height: 24px;
+}
+
+#closeMailbox {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+    bottom: 20%;
+    right: 20%;
+
+    font-size: 64px;
+    text-align: center;
+
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: inset -1px -1px 2px 1px rgba(0, 0, 0, 0.75);
+}
+
+#closeMailbox:hover {
+    cursor: pointer;
+}
+
+.mailItem {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+
+    box-shadow: -4px 4px 6px 4px rgba(0, 0, 0);
+    image-rendering: pixelated;
+    transition: transform 0.5s ease;
+}
+
+.mailItem:hover {
+    transform: translateY(-4px);
+    cursor: pointer;
+    filter: invert(100%);
+}
+
+#mailItem1 {
+    top: 15%;
+    left: 10%;
+    width: 120px;
+    height: 200px;
+    transform: rotate(-10deg);
+    background-image: url('./src/joinnow.png');
+
+}
+
+#mailItem1:hover {
+    transform: rotate(-10deg) translateY(-4px);
+}
+
+
+#mailItem2 {
+    top: 10%;
+    left: 25%;
+    width: 150px;
+    height: 200px;
+    background-image: url('./src/letterfolder.png');
+}
+
+#mailItem3 {
+    top: 45%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    transform: rotate(-5deg);
+    background-image: url('./src/sticky.png')
+}
+
+#mailItem3:hover {
+    transform: rotate(-5deg) translateY(-4px);
+}
+
+#mailItem4 {
+    top: 40%;
+    left: 30%;
+    width: 150px;
+    height: 250px;
+    transform: rotate(10deg)
+}
+
+#mailItem4:hover {
+    transform: rotate(10deg) translateY(-4px);
+}
+
+#mailItem5 {
+    top: 65%;
+    left: 35%;
+    width: 200px;
+    height: 150px;
+
+    background-image: url('./src/postcard.png')
+}
+
+#mailContents {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    left: 45%;
+
+    padding: 1em;
+    box-sizing: border-box;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    background-color: white;
+    box-shadow: inset -1px -1px 4px 0px rgba(0, 0, 0, 0.75);
+    border: 1px solid black;
+
+    white-space: pre-line;
+}
+
+.calloutText {
+    padding: 1em;
+    border: 1px solid black;
 }
