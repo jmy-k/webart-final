@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadScreenStart();
     }
     document.addEventListener("mousemove", (e) => {
-        tooltip.style.left = e.clientX - 100 + "px"; // slightly offset from cursor
+        tooltip.style.left = e.clientX - e.clientX / 10 + "px"; // slightly offset from cursor
         tooltip.style.top = e.clientY + 12 + "px";
     });
     navButtonArray.forEach((button) => {

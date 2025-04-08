@@ -1,22 +1,44 @@
 let body = document.body;
 let mainScreen = document.getElementById("mainscreen");
-let screen = "home";
 let tooltip = document.getElementById("tooltip");
 let navButtons = document.getElementsByClassName("navButton");
-let mailbox = document.getElementById("mailbox");
 let navButtonArray = Array.from(navButtons);
-let folderImageContainer;
-let mailboxAlert = "there's a message";
+let mailbox = document.getElementById("mailbox");
+let about = document.getElementById("about");
+let backgroundMusic = document.getElementById("backgroundMusic");
+
 let backgroundOverlay = document.getElementById("backgroundOverlay");
 let overlayContainer = document.getElementById("overlayContainer");
+let titleText = document.getElementById("titleText");
+let folderImageContainer;
+
+let aboutText;
+
+let mailboxAlert = "there's a message";
 let messageOpen;
+let screen = "home";
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
+    backgroundMusic.load();  // Manually load the audio file
+
+    mainScreen.addEventListener("click", () => {
+        backgroundMusic.muted = false;
+        if (backgroundMusic.paused) { backgroundMusic.play() };
+    })
+
+    titleText.addEventListener("click", () => {
+        loadHomePage();
+        screen = "home";
+    })
+
     if (screen == "home") {
         loadHomePage();
     }
+
     document.addEventListener("mousemove", (e) => {
-        tooltip.style.left = e.clientX - 100 + "px"; // slightly offset from cursor
+        tooltip.style.left = e.clientX - e.clientX / 10 + "px"; // slightly offset from cursor
         tooltip.style.top = e.clientY + 12 + "px";
     });
     navButtonArray.forEach((button) => {
@@ -44,13 +66,30 @@ document.addEventListener("DOMContentLoaded", function () {
         mailbox.style.backgroundImage = "url('./src/maildefault.png')";
         loadMailPage()
     });
+
+    about.addEventListener("click", () => {
+        screen = "about"
+        loadAboutPage();
+    })
 });
 
 
 function loadHomePage() {
+    clearScreen();
+
+    mainScreen.style.justifyContent = "space-between";
+    mainScreen.style.alignItems = "center";
+
+    homepageText = document.createElement("div");
+    homepageText.id = "homepageText";
+    homepageText.innerHTML = "Welcome back.";
+    mainScreen.appendChild(homepageText);
+
+
     folderImageContainer = document.createElement("div");
     folderImageContainer.id = "folderImageContainer";
     mainScreen.appendChild(folderImageContainer);
+
 
     for (let i = 0; i <= 8; i++) {
         let folderImage = document.createElement("img");
@@ -110,6 +149,9 @@ function loadMailPage() {
         else if (messageOpen == "apology") {
             tooltip.innerHTML = "i guess some memories are lost forever.";
         }
+        else if (messageOpen == "wemissyou") {
+            tooltip.innerHTML = "seems like it's been a while since the last upload."
+        }
 
         tooltip.style.opacity = 1;
     })
@@ -147,7 +189,22 @@ function loadMailPage() {
             });
 
         }
-        if (i == 4) {
+        else if (i == 3) {
+            mailItem.addEventListener("click", () => {
+                messageOpen = "wemissyou"
+
+                // Clear existing text content
+                mailContents.textContent = '';
+
+                // Fetch and type the new text
+                fetch('./src/wemissyou.txt')
+                    .then(response => response.text())
+                    .then(text => mailContents.innerHTML = text)
+                    .catch(err => console.error('Error loading file:', err));
+
+            });
+        }
+        else if (i == 4) {
             mailItem.classList.add("alert");
 
             // Add click event to reset and type text
@@ -198,6 +255,51 @@ function loadMailPage() {
     mailOverlay.appendChild(mailContents);
 }
 
+function loadAboutPage() {
+    clearScreen();
+
+    mainScreen.style.overflowY = "scroll";
+
+    aboutText = document.createElement("div");
+    aboutText.id = "aboutText";
+
+    fetch('./src/about.txt')
+        .then(response => response.text())
+        .then(text => aboutText.innerHTML = text)
+        .catch(err => console.error('Error loading file:', err));
+
+    mainScreen.appendChild(aboutText);
+
+    let founderContainer = document.createElement("div");
+    founderContainer.id = "founder";
+
+    navButtonArray.forEach((button) => {
+        founderContainer.addEventListener("mouseover", () => {
+            tooltip.innerHTML = "a cloud...";
+            tooltip.style.opacity = 1;
+        })
+        founderContainer.addEventListener("mouseleave", () => {
+            tooltip.style.opacity = "0";
+        });
+
+    });
+
+    let founderIMG = document.createElement("img");
+    founderIMG.src = "./src/founder.jpg";
+    founderIMG.id = "founderImage";
+
+    let founderCaption = document.createElement("div");
+    founderCaption.textContent = "Our Beloved Founder";
+    founderContainer.appendChild(founderIMG);
+    founderContainer.appendChild(founderCaption);
+
+
+
+    mainScreen.appendChild(founderContainer);
+    mainScreen.style.justifyContent = "start";
+    mainScreen.style.alignItems = "center";
+}
+
 function typeText(text) {
     const target = document.getElementById('mailContents');
     let i = 0;
@@ -211,4 +313,10 @@ function typeText(text) {
     }
 
     typeNextChar();
+}
+
+function clearScreen() {
+    while (mainScreen.children.length > 1) {
+        mainScreen.removeChild(mainScreen.lastChild);
+    }
 }
