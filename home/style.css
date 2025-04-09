@@ -155,7 +155,6 @@ video {
     min-width: 98%;
 
 
-
     margin: 1%;
     padding: 1%;
     box-sizing: border-box;
@@ -216,12 +215,20 @@ video {
 }
 
 #titleText {
-    font-family: 'Instrument Serif', serif;
-    font-size: 64px;
-    text-align: left;
-    text-shadow: 1px 1px 2px #0B2545;
     transition: transform 1s ease;
+    min-width: 500px;
+    height: 85px;
+    border: 1px solid #0B2545;
+    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+    transition: transform 0.5s ease, visibility 1s ease;
+}
 
+#titleText:hover {
+    transform: translateY(-2px);
+}
+
+#titleText:active {
+    transform: translateY(2px);
 }
 
 .button {
@@ -259,8 +266,8 @@ video {
     }
 
     100% {
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translateX(-300%);
+        -webkit-transform: translate3d(-350%, 0, 0);
+        transform: translateX(-350%);
     }
 }
 
@@ -272,8 +279,8 @@ video {
     }
 
     100% {
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translateX(-300%);
+        -webkit-transform: translate3d(-350%, 0, 0);
+        transform: translateX(-350%);
     }
 }
 
@@ -513,6 +520,16 @@ video {
     cursor: pointer;
 }
 
+.mailImage {
+    background-image: url("./src/umbrella.jpg");
+    background-position: top;
+    background-size: cover;
+    width: 60%;
+    height: 100%;
+    image-rendering: pixelated;
+
+}
+
 .mailItem {
     position: absolute;
     /* border: 1px solid #0B2545; */
@@ -520,6 +537,7 @@ video {
     box-shadow: -4px 4px 6px 4px rgba(11, 37, 69);
     image-rendering: pixelated;
     transition: transform 0.5s ease;
+    height: fit-content;
 }
 
 .mailItem:hover {

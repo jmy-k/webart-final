@@ -127,7 +127,6 @@ function loadHomePage() {
         }
         folderImage.id = "folderImage" + i;
 
-
         folderImageContainer.appendChild(folderImage);
         folderImage.classList.add("fade-in");
     }
