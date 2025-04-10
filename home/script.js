@@ -20,6 +20,7 @@ let isPlaying = false;
 let mailboxAlert = "there's a message";
 let messageOpen;
 let screen = "home";
+let node = "2019";
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -37,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (screen == "home") {
         loadHomePage();
+    }
+    else if (screen == "about") {
+        loadAboutPage;
     }
 
     document.addEventListener("mousemove", (e) => {
@@ -93,15 +97,27 @@ function togglePlay() {
 function loadHomePage() {
     clearScreen();
 
-    mainScreen.style.justifyContent = "space-between";
     mainScreen.style.alignItems = "center";
 
     homepageText = document.createElement("div");
     homepageText.id = "homepageText";
-    homepageText.innerHTML = "Welcome back.";
+    homepageText.innerHTML = "Welcome back. <b>Last login:</b> 7345 days ago.";
     mainScreen.appendChild(homepageText);
 
+    drawFolders();
+    const folderNames = {};
+    for (let i = 2; i <= 7; i++) {
+        let element = document.querySelector(`#folderName${i}`);
+        folderNames[`folderName${i}`] = element;
+    }
+    console.log(folderNames)
+    if (node == "2019") {
+        folderNames.folderName2.innerHTML = "re_entry_log??_MISSING.emotion"
+    }
 
+}
+
+function drawFolders() {
     folderImageContainer = document.createElement("div");
     folderImageContainer.id = "folderImageContainer";
     mainScreen.appendChild(folderImageContainer);
@@ -120,18 +136,28 @@ function loadHomePage() {
         else if (i == 2 || i == 3) {
             folderImage.src = "./src/fileleft.png";
             folderImage.classList.add("folderImage");
+
+            let folderName = document.createElement("div");
+            folderName.classList.add("folderName");
+            folderName.classList.add("left");
+            folderName.id = "folderName" + i;
+            folderImageContainer.appendChild(folderName);
         }
         else {
             folderImage.src = "./src/fileright.png";
             folderImage.classList.add("folderImage");
+
+            let folderName = document.createElement("div");
+            folderName.classList.add("folderName");
+            folderName.classList.add("right");
+            folderName.id = "folderName" + i;
+            folderImageContainer.appendChild(folderName);
         }
         folderImage.id = "folderImage" + i;
 
         folderImageContainer.appendChild(folderImage);
         folderImage.classList.add("fade-in");
     }
-
-
 }
 
 function loadMailPage() {
@@ -183,8 +209,6 @@ function loadMailPage() {
 
     let mailContainer = document.createElement("div");
     mailContainer.id = "mailContainer";
-
-    let typingInterval;  // Variable to store the interval ID
 
     for (let i = 0; i < 5; i++) {
         let mailItem = document.createElement("div");
@@ -275,35 +299,16 @@ function loadMailPage() {
             });
         }
     }
-
-    // Typing function
-    function typeText(text) {
-        const target = document.getElementById('mailContents');  // Adjust to your target element
-        let i = 0;
-
-        typingInterval = setInterval(() => {
-            if (i < text.length) {
-                target.textContent += text.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingInterval);  // Stop the typing when the text is done
-            }
-        }, 30);  // 30ms per character
-    }
-
-
-
-
     mailOverlay.appendChild(mailContainer);
     mailOverlay.appendChild(mailContents);
 }
 
 function loadAboutPage() {
     clearScreen();
+
+    // about page
     let aboutPage = document.createElement("div");
     aboutPage.id = "aboutPage";
-    aboutPage.style.overflowY = "scroll";
-
     aboutText = document.createElement("div");
     aboutText.id = "aboutText";
 
@@ -317,15 +322,12 @@ function loadAboutPage() {
     let founderContainer = document.createElement("div");
     founderContainer.id = "founder";
 
-    navButtonArray.forEach((button) => {
-        founderContainer.addEventListener("mouseover", () => {
-            tooltip.innerHTML = "<b>the </b> cloud...";
-            tooltip.style.opacity = 1;
-        })
-        founderContainer.addEventListener("mouseleave", () => {
-            tooltip.style.opacity = "0";
-        });
-
+    founderContainer.addEventListener("mouseover", () => {
+        tooltip.innerHTML = "<b>the </b> cloud...";
+        tooltip.style.opacity = 1;
+    })
+    founderContainer.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = "0";
     });
 
     let founderIMG = document.createElement("img");
@@ -337,29 +339,50 @@ function loadAboutPage() {
     founderContainer.appendChild(founderIMG);
     founderContainer.appendChild(founderCaption);
 
-
-
     aboutPage.appendChild(founderContainer);
     mainScreen.appendChild(aboutPage);
-}
 
-function typeText(text) {
-    const target = document.getElementById('mailContents');
-    let i = 0;
+    // how to section
+    let howToPage = document.createElement("div");
+    howToPage.id = "howToPage";
 
-    function typeNextChar() {
-        if (i < text.length) {
-            target.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeNextChar, 30); // 30ms delay per character
-        }
-    }
+    let howToText = document.createElement("div");
+    howToText.id = "howToText";
 
-    typeNextChar();
+    fetch('./src/howTo.txt')
+        .then(response => response.text())
+        .then(text => howToText.innerHTML = text)
+        .catch(err => console.error('Error loading file:', err));
+    howToPage.appendChild(howToText);
+
+    let howToGraphic = document.createElement("img");
+    howToGraphic.id = "howToGraphic";
+    howToGraphic.src = "./src/howtographic.png";
+
+    howToPage.appendChild(howToGraphic);
+
+    mainScreen.appendChild(howToPage);
+
 }
 
 function clearScreen() {
     while (mainScreen.children.length > 2) {
         mainScreen.removeChild(mainScreen.lastChild);
     }
+}
+
+let typingInterval;  // Variable to store the interval ID
+// Typing function
+function typeText(text) {
+    const target = document.getElementById('mailContents');  // Adjust to your target element
+    let i = 0;
+
+    typingInterval = setInterval(() => {
+        if (i < text.length) {
+            target.textContent += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);  // Stop the typing when the text is done
+        }
+    }, 30);  // 30ms per character
 }

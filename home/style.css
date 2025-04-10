@@ -59,7 +59,6 @@ body {
     background-color: #EEF4ED;
     overflow: hidden;
     font-family: 'W95FA', sans-serif;
-    font-weight: lighter;
     user-select: none;
     color: #0B2545;
 }
@@ -74,6 +73,10 @@ video {
     filter: contrast(0.9) brightness(1.2) saturate(0.8) blur(1px);
     /* image-rendering: pixelated; */
     border: 1px solid #0B2545;
+}
+
+img {
+    image-rendering: pixelated;
 }
 
 #tooltip {
@@ -152,7 +155,7 @@ video {
     gap: 16px;
     align-items: left;
 
-    min-width: 98%;
+    width: 98%;
 
 
     margin: 1%;
@@ -165,6 +168,7 @@ video {
     box-shadow: inset 0px 0px 5px 0px rgba(11, 37, 69, 0.75);
 
     overflow-x: hidden;
+    overflow-y: scroll;
     /* margin-right: calc(-1 * (100vw - 100%)); */
 }
 
@@ -452,6 +456,58 @@ video {
     grid-row: 11/ 14;
 }
 
+.folderName {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    text-align: left;
+    position: absolute;
+    padding: 8px;
+    font-size: 24px;
+    width: fit-content;
+}
+
+.folderName.left {
+    right: 60%;
+}
+
+.folderName.right {
+    left: 65%;
+}
+
+
+#folderName2 {
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+#folderName3 {
+    grid-row: 4/5;
+    grid-column: 1/2
+}
+
+#folderName4 {
+    grid-row: 5/6;
+    grid-column: 1/2
+}
+
+#folderName5 {
+    grid-row: 6/7;
+    grid-column: 1/2
+}
+
+#folderName6 {
+    grid-row: 7/8;
+    grid-column: 1/2
+}
+
+#folderName7 {
+    grid-row: 8/9;
+    grid-column: 1/2
+}
+
 
 .folderImage,
 .folderBox {
@@ -664,6 +720,21 @@ video {
     height: 100%;
     image-rendering: pixelated;
 
+}
+
+#howToPage {
+    height: auto;
+    padding: 40px 10px;
+    box-sizing: border-box;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+#howToText {
+    white-space: pre-line;
+    width: 45%;
 }
 
 .pageTitle {

@@ -1,0 +1,22 @@
+<h3>📁 How to Use Memory Garden</h3>
+<div><em>An Instructional Outline for Uploaders, Viewers, and Unauthorized Guests</em></div>
+
+        <h3>1. Create a Node</h3>
+            Your node is your private access point to the archive. Your name, your key, your timeline.
+            The Cloud does not require truth—only consistency.
+
+
+        <h3>2. Upload a Memory</h3>
+            Acceptable formats: <code>.txt</code>, <code>.jpeg</code>, <code>.mp4</code>, <code>.zip</code>, <code>.mp3</code>, <code>.heirloom</code>, <code>.unresolved</code>, <code>.emotion</code>
+            <i>(unstable)</i>.
+            Tagging is optional. Compression is automatic. You may describe, encrypt, or distort your memory.
+            
+            The Cloud does not care. <strong>It only observes what you return to.</strong>
+
+
+        <h3>3. Revisit</h3>
+            Repeated access strengthens a memory’s file integrity. Neglected memories may fragment, stutter, or disappear from view. You will not be notified when this happens.
+
+
+        <h3>4. Access Other Nodes <small>(if breached)</small></h3>
+            Some nodes are public. Others are unintentionally exposed. If you find yourself in someone else's archive, proceed with caution. Some memories carry emotional weight that corrupts the viewer.
