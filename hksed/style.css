@@ -120,6 +120,37 @@ body {
     right: 10%;
 }
 
+#popup8 {
+    top: 5%;
+    right: 10%;
+}
+
+#popup9 {
+    top: 5%;
+    left: 10%;
+}
+
+#popup10 {
+    top: 52%;
+    left: 5%;
+}
+
+#popup11 {
+    top: 64%;
+    left: 25%;
+}
+
+
+#popup12 {
+    top: 3%;
+    left: 5%;
+}
+
+#popup13 {
+    top: 5%;
+    left: 50%;
+}
+
 img {
     width: 100%;
     image-rendering: pixelated;

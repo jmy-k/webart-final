@@ -618,7 +618,6 @@ img {
 
 .folderImage:hover {
     transform: translateY(-3px);
-    cursor: pointer;
 }
 
 #mailOverlay {

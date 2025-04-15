@@ -20,7 +20,7 @@ let isPlaying = false;
 let mailboxAlert = "there's a message";
 let messageOpen;
 let screen = "home";
-let node = "2019";
+let node = "2020";
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -112,13 +112,13 @@ function loadHomePage() {
         folderNames[`folderName${i}`] = element;
     }
     console.log(folderNames)
-    if (node == "2019") {
+    if (node == "2020") {
         folderNames.folderName2.innerHTML = "re_entry_log??_MISSING.emote";
         folderNames.folderName3.innerHTML = "[⬛]noentry";
         folderNames.folderName3.classList.add("glitch");
         folderNames.folderName4.innerHTML = "he☐llo";
         folderNames.folderName4.classList.add("jitter");
-        folderNames.folderName5.innerHTML = "sedit☐on.mp4";
+        folderNames.folderName5.innerHTML = "[no-title].bin";
         folderNames.folderName5.addEventListener("click", () => {
             window.open('../hksed/index.html', '_blank').focus()
         });

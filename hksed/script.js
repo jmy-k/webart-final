@@ -89,6 +89,26 @@ setTimeout(() => {
     document.getElementById("popup7").classList.add("show");
 }, 20000); // after 20 seconds
 
+setTimeout(() => {
+    document.getElementById("popup8").classList.add("show");
+}, 23000); // after 23 seconds
+setTimeout(() => {
+    document.getElementById("popup9").classList.add("show");
+}, 24000); // after 24 seconds
+setTimeout(() => {
+    document.getElementById("popup10").classList.add("show");
+}, 28000); // after 28 seconds
+setTimeout(() => {
+    document.getElementById("popup11").classList.add("show");
+}, 30000); // after 30 seconds
+setTimeout(() => {
+    document.getElementById("popup12").classList.add("show");
+}, 34000); // after 30 seconds
+setTimeout(() => {
+    document.getElementById("popup13").classList.add("show");
+}, 36000); // after 30 seconds
+
+
 let typingInterval;  // Variable to store the interval ID
 // Typing function
 function typeText(text) {
