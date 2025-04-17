@@ -117,6 +117,9 @@ function loadHomePage() {
         folderNames.folderName3.innerHTML = "[⬛]noentry";
         folderNames.folderName3.classList.add("glitch");
         folderNames.folderName4.innerHTML = "he☐llo";
+        folderNames.folderName4.addEventListener("click", () => {
+            window.open('../phone/index.html', '_blank').focus()
+        })
         folderNames.folderName4.classList.add("jitter");
         folderNames.folderName5.innerHTML = "[no-title].bin";
         folderNames.folderName5.addEventListener("click", () => {

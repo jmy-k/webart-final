@@ -1,0 +1,161 @@
+@font-face {
+    font-family: W95FA;
+    src: url('../src/W95FA.otf');
+}
+
+
+a:-webkit-any-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 16px;
+    /* Width of the vertical scrollbar */
+    height: 16px;
+    /* Height of the horizontal scrollbar */
+}
+
+/* The part of the scrollbar that the user can interact with (the handle) */
+::-webkit-scrollbar-thumb {
+    background-color: #3b3b3b;
+
+    /* Rounded edges */
+    border: 4px solid #2f2f2f;
+    /* Border around the thumb (retro blocky look) */
+}
+
+/* The track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: #8c8c8c;
+
+    /* Match the thumb's border-radius */
+}
+
+/* Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
+    /* Lighter grey when hovering over the thumb */
+}
+
+button {
+    font-family: 'W95FA', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    background-color: white;
+    border: 2px solid;
+    border-color: #808080 #303030 #303030 #808080;
+    box-shadow: inset -1px -1px 2px 0px #ccc;
+    transition: visibility 1s ease;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+select {
+    color: #000;
+    font-family: 'W95FA', sans-serif;
+    font-size: 14px;
+    padding: 4px 8px;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+/* Remove default option styling */
+select option {
+    background: #fff;
+    color: #000;
+    font-family: 'W95FA', sans-serif;
+    font-size: 14px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 0px;
+    /* no rounded borders on options */
+}
+
+/* Hover/focus effects for select box */
+select:hover,
+select:focus {
+    border-color: #0000FF;
+    /* highlight blue when focused */
+
+}
+
+image {
+    image-rendering: optimizeSpeed;
+}
+
+body {
+    font-family: 'W95FA', sans-serif;
+    background: #f0f0f0;
+    padding: 2em;
+}
+
+
+
+.chatbox,
+select {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #808080 #303030 #303030 #808080;
+    /* darker top-left, lighter bottom-right */
+    box-shadow:
+        inset -2px -2px #ffffff,
+        /* highlight bottom-right */
+        inset 2px 2px #808080,
+        /* shadow top-left */
+        inset 1px 1px #dfdfdf,
+        /* soft inner bottom-right */
+        inset -1px -1px #404040;
+    /* soft inner top-left */
+}
+
+.chatbox {
+
+    padding: 1em;
+    max-width: 600px;
+    margin: auto;
+    overflow-y: scroll;
+    max-height: 80%;
+
+}
+
+
+.message {
+    margin: 1em 0;
+}
+
+.bot {
+    color: blue;
+}
+
+.user {
+    color: white;
+}
+
+#chat-form {
+    margin-top: 1em;
+    text-align: center;
+}
+
+#bgVideo,
+#bgImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#bgVideo.active,
+#bgImage.active {
+    opacity: 1;
+}
