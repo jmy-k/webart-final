@@ -1,4 +1,5 @@
 
+
 let mainScreen = document.getElementById("mainscreen");
 let screen = "start";
 let tooltip = document.getElementById("tooltip");
@@ -37,9 +38,8 @@ function loadScreenStart() {
 
     loginButton = document.createElement("div");
     loginButton.id = "loginButton";
-    loginButton.classList.add("button");
+    loginButton.classList.add("button", "fade-in");
     loginButton.innerHTML = "login";
-    loginButton.classList.add("fade-in");
     loginButton.addEventListener("click", () => {
         loadScreenLogin();
     });

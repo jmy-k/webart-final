@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     body.appendChild(video);
     video.autoplay = true;
 
+    video.addEventListener("ended", () => {
+        console.log("video ended");
+        videoEnd();
+    });
+
     makeDraggable(subtitles);
 
     popups.forEach((popup) => {
@@ -92,21 +97,54 @@ setTimeout(() => {
 setTimeout(() => {
     document.getElementById("popup8").classList.add("show");
 }, 23000); // after 23 seconds
+
 setTimeout(() => {
     document.getElementById("popup9").classList.add("show");
 }, 24000); // after 24 seconds
+
 setTimeout(() => {
     document.getElementById("popup10").classList.add("show");
 }, 28000); // after 28 seconds
+
 setTimeout(() => {
     document.getElementById("popup11").classList.add("show");
 }, 30000); // after 30 seconds
+
 setTimeout(() => {
     document.getElementById("popup12").classList.add("show");
-}, 34000); // after 30 seconds
+}, 34000); // after 34 seconds
+
 setTimeout(() => {
     document.getElementById("popup13").classList.add("show");
-}, 36000); // after 30 seconds
+}, 36000); // after 36 seconds
+
+setTimeout(() => {
+    document.getElementById("popup14").classList.add("show");
+}, 40000); // after 40 seconds
+
+setTimeout(() => {
+    document.getElementById("popup15").classList.add("show");
+}, 42000); // after 42 seconds
+
+setTimeout(() => {
+    document.getElementById("popup16").classList.add("show");
+}, 45000); // after 45 seconds
+
+setTimeout(() => {
+    document.getElementById("popup17").classList.add("show");
+}, 47000); // after 47 seconds
+
+setTimeout(() => {
+    document.getElementById("popup18").classList.add("show");
+}, 50000); // after 50 seconds
+
+setTimeout(() => {
+    document.getElementById("popup19").classList.add("show");
+}, 52000); // after 52 seconds
+
+setTimeout(() => {
+    document.getElementById("popup20").classList.add("show");
+}, 55000); // after 55 seconds
 
 
 let typingInterval;  // Variable to store the interval ID
@@ -125,3 +163,50 @@ function typeText(text) {
     }, 85);  // 30ms per character
 }
 
+function videoEnd() {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const numPopups = 30;
+    const angleIncrement = Math.PI / 6; // 30 degrees
+    const radiusIncrement = 10; // pixels
+    const delayBetweenPopups = 100; // ms
+
+    for (let i = 0; i < numPopups; i++) {
+        setTimeout(() => {
+            const angle = i * angleIncrement;
+            const radius = i * radiusIncrement;
+
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+
+            const popup = document.createElement('div');
+            popup.className = 'popup draggable';
+            popup.id = `popup${i + 21}`;
+
+            const close = document.createElement('div');
+            close.className = 'close';
+            close.textContent = 'X';
+            close.onclick = () => popup.remove();
+
+            const img = document.createElement('img');
+            img.src = './error.png';
+            img.alt = '';
+
+            popup.appendChild(close);
+            popup.appendChild(img);
+
+            popup.style.position = 'absolute';
+            popup.style.left = `${x}px`;
+            popup.style.top = `${y}px`;
+            popup.style.opacity = '0';
+            popup.style.transition = 'opacity 0.1s ease';
+
+            document.body.appendChild(popup);
+
+            // trigger fade-in
+            requestAnimationFrame(() => {
+                popup.style.opacity = '1';
+            });
+        }, i * delayBetweenPopups);
+    }
+}
