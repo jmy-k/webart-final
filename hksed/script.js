@@ -168,7 +168,7 @@ function videoEnd() {
     const centerY = window.innerHeight / 2;
     const numPopups = 30;
     const angleIncrement = Math.PI / 6; // 30 degrees
-    const radiusIncrement = 10; // pixels
+    const radiusIncrement = 10; // px
     const delayBetweenPopups = 100; // ms
 
     for (let i = 0; i < numPopups; i++) {
@@ -180,7 +180,7 @@ function videoEnd() {
             const y = centerY + radius * Math.sin(angle);
 
             const popup = document.createElement('div');
-            popup.className = 'popup draggable';
+            popup.className = 'popup draggable show';
             popup.id = `popup${i + 21}`;
 
             const close = document.createElement('div');
@@ -189,7 +189,18 @@ function videoEnd() {
             close.onclick = () => popup.remove();
 
             const img = document.createElement('img');
-            img.src = './error.png';
+            if (i % 4 === 0) {
+                img.src = './iwant.png';
+            }
+            else if (i % 3 === 0) {
+                img.src = './mutual.png';
+            }
+            else if (i % 2 === 0) {
+                img.src = './iwant2.png';
+            }
+            else {
+                img.src = "./mutual2.png"
+            }
             img.alt = '';
 
             popup.appendChild(close);
