@@ -77,7 +77,7 @@ body {
     pointer-events: none;
     /* let cursor pass through */
     background-color: #222;
-    color: white;
+    color: #EEF4ED;
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 14px;
@@ -111,11 +111,26 @@ body {
     height: 48px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: #8DA9C4;
+    background: linear-gradient(to bottom, #8DA9C4, #6C8BA8);
+    border: 2px solid #0B2545;
+    border-top-color: #EEF4ED;
+    /* lighter top */
+    border-left-color: #EEF4ED;
+    /* lighter left */
+    border-bottom-color: #0B2545;
+    /* darker bottom */
+    border-right-color: #0B2545;
+    /* darker right */
     box-sizing: border-box;
     padding: 16px;
+    box-shadow:
+        2px 2px 0 #0B2545,
+        /* bottom-right dark shadow */
+        -2px -2px 0 #EEF4ED;
+    /* top-left light highlight */
 
     font-family: 'W95FA', sans-serif;
+
 }
 
 .navButton {
@@ -126,9 +141,18 @@ body {
     width: 24px;
     height: 16px;
     padding-bottom: 0.25em;
-    background-color: white;
-    border: 1px solid #0B2545;
-    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+    background-color: #EEF4ED;
+    border: 2px solid #0B2545;
+    /* dark border as base */
+    border-top-color: #EEF4ED;
+    /* light top for bevel */
+    border-left-color: #EEF4ED;
+    /* light left for bevel */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+    box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
     transition: transform 0.5s ease, visibility 1s ease;
 }
 
@@ -139,8 +163,8 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 98%;
-    min-height: 90%;
+    width: 98%;
+    height: 90%;
 
     margin: 1%;
     padding: 1%;
@@ -149,16 +173,32 @@ body {
     background-image: url("../src/pixelbackground.png");
     background-position: center;
     background-size: 30%;
-    box-shadow: inset 0px 0px 5px 0px rgba(11, 37, 69, 0.75);
+    background-repeat: repeat;
+    background-color: #8DA9C4;
+    /* fallback color if image fails */
+
+    /* Thicker inset border */
+    border: 3px solid #0B2545;
+    border-top-color: #0B2545;
+    /* dark top */
+    border-left-color: #0B2545;
+    /* dark left */
+    border-right-color: #EEF4ED;
+    /* light right */
+    border-bottom-color: #EEF4ED;
+    /* light bottom */
+
+    /* Deep inset bevel */
+    box-shadow:
+        inset -3px -3px 0 #0B2545,
+        /* inner top-left dark */
+        inset 3px 3px 0 #EEF4ED;
+    /* inner bottom-right light */
 
     overflow-x: hidden;
-    /* margin-right: calc(-1 * (100vw - 100%)); */
 }
 
-#navbar,
-#mainscreen {
-    border: 1px solid #0B2545;
-}
+
 
 .fade-in {
     opacity: 0;
@@ -184,12 +224,6 @@ body {
     }
 }
 
-
-#navbar,
-#mainscreen {
-    border: 1px solid #0B2545;
-}
-
 #titleText {
     font-family: 'Instrument Serif', serif;
     font-size: 64px;
@@ -207,9 +241,22 @@ body {
     padding-right: 1em;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
-    background-color: white;
-    border: 1px solid #0B2545;
-    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+
+    background-color: #C0C0C0;
+    /* classic Win95 gray */
+    border: 2px solid #0B2545;
+    /* base border */
+    border-top-color: #EEF4ED;
+    /* light top */
+    border-left-color: #EEF4ED;
+    /* light left */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+
+    box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
+
     transition: transform 0.5s ease, visibility 1s ease;
 }
 
@@ -222,7 +269,7 @@ body {
 .button:active {
     transform: translateY(2px);
     background-color: #0B2545;
-    color: white;
+    color: #EEF4ED;
     box-shadow: inset -1px -1px 4px 0px rgba(255, 255, 255, 0.75);
 }
 

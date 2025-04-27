@@ -64,7 +64,7 @@ function loadScreenLogin() {
     usernameInput.type = "text";
     usernameInput.id = "usernameInput";
     usernameInput.classList.add("fade-in-up");
-    usernameInput.value = "username";
+    usernameInput.value = "julia_k";
     usernameContainer.appendChild(username);
     usernameContainer.appendChild(usernameInput);
 
@@ -159,6 +159,7 @@ function loadScreenWelcome() {
     nextButton.classList.add("button");
     nextButton.innerHTML = "next";
     mainScreen.appendChild(nextButton);
+
 
 }
 

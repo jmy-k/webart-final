@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
@@ -29,28 +30,32 @@ body {
     align-items: end;
     gap: 4px;
 
-    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
-    color: white;
+    background: linear-gradient(to bottom, #8DA9C4, #6C8BA8);
     transition: transform 0.2s ease;
     transform: scale(0.6);
     opacity: 0;
     pointer-events: none;
     user-select: none;
+
     width: 20%;
     z-index: 3;
 
     padding: 8px 8px 8px 8px;
     border: 2px solid;
-    border-color: #333 #808080 #808080 #333;
-    box-shadow:
-        inset 2px 2px #ffffff,
-        /* top-left highlight */
-        inset -2px -2px #808080,
-        /* bottom-right shadow */
-        inset -1px -1px #dfdfdf,
-        /* inner top-left */
-        inset 1px 1px #404040;
-    /* inner bottom-right */
+    /* same blue */
+    color: black;
+    font-family: 'W95FA', sans-serif;
+    font-size: 16px;
+
+    border: 4px solid #0B2545;
+    border-top-color: #EEF4ED;
+    /* light top */
+    border-left-color: #EEF4ED;
+    /* light left */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
 }
 
 .close {
@@ -91,7 +96,7 @@ body {
 }
 
 #popup2 {
-    top: 50%;
+    top: 49%;
     right: 25%;
     width: 20%;
 }
@@ -107,7 +112,7 @@ body {
 }
 
 #popup5 {
-    top: 60%;
+    top: 55%;
     left: 15%;
 }
 
@@ -172,7 +177,7 @@ body {
 }
 
 #popup18 {
-    top: 70%;
+    top: 67%;
     right: 5%;
 }
 
@@ -219,4 +224,44 @@ img {
     height: 100%;
     user-select: none;
     white-space: pre-line;
+}
+
+.flicker {
+    animation: flicker 1.5s infinite;
+    text-shadow: 0 0 2px #EEF4ED;
+}
+
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.4;
+    }
+}
+
+#finalFlash {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 98%;
+    max-height: 98%;
+
+    z-index: 999;
+
+    opacity: 0;
+    transition: opacity 0.1s ease
 }

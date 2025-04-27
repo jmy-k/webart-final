@@ -67,7 +67,7 @@ function makeDraggable(el) {
 
 
 setTimeout(() => {
-    document.getElementById("popup1").classList.add("show");
+    document.getElementById("popup1").classList.add("show", "flicker");
 }, 1000); // after 1 second
 
 setTimeout(() => {
@@ -75,7 +75,7 @@ setTimeout(() => {
 }, 5000); // after 5 seconds
 
 setTimeout(() => {
-    document.getElementById("popup3").classList.add("show");
+    document.getElementById("popup3").classList.add("show", "flicker");
 }, 10000); // after 10 seconds
 
 setTimeout(() => {
@@ -87,7 +87,7 @@ setTimeout(() => {
 }, 14000); // after 14 seconds
 
 setTimeout(() => {
-    document.getElementById("popup6").classList.add("show");
+    document.getElementById("popup6").classList.add("show", "flicker");
 }, 16000); // after 16 seconds
 
 setTimeout(() => {
@@ -99,7 +99,7 @@ setTimeout(() => {
 }, 23000); // after 23 seconds
 
 setTimeout(() => {
-    document.getElementById("popup9").classList.add("show");
+    document.getElementById("popup9").classList.add("show", "flicker");
 }, 24000); // after 24 seconds
 
 setTimeout(() => {
@@ -111,7 +111,7 @@ setTimeout(() => {
 }, 30000); // after 30 seconds
 
 setTimeout(() => {
-    document.getElementById("popup12").classList.add("show");
+    document.getElementById("popup12").classList.add("show", "flicker");
 }, 34000); // after 34 seconds
 
 setTimeout(() => {
@@ -119,7 +119,7 @@ setTimeout(() => {
 }, 36000); // after 36 seconds
 
 setTimeout(() => {
-    document.getElementById("popup14").classList.add("show");
+    document.getElementById("popup14").classList.add("show", "flicker");
 }, 40000); // after 40 seconds
 
 setTimeout(() => {
@@ -127,7 +127,7 @@ setTimeout(() => {
 }, 42000); // after 42 seconds
 
 setTimeout(() => {
-    document.getElementById("popup16").classList.add("show");
+    document.getElementById("popup16").classList.add("show", "flicker");
 }, 45000); // after 45 seconds
 
 setTimeout(() => {
@@ -139,7 +139,7 @@ setTimeout(() => {
 }, 50000); // after 50 seconds
 
 setTimeout(() => {
-    document.getElementById("popup19").classList.add("show");
+    document.getElementById("popup19").classList.add("show", "flicker");
 }, 52000); // after 52 seconds
 
 setTimeout(() => {
@@ -218,6 +218,37 @@ function videoEnd() {
             requestAnimationFrame(() => {
                 popup.style.opacity = '1';
             });
+            if (i === numPopups - 1) {
+                setTimeout(finalFlash, 500);
+            }
+
         }, i * delayBetweenPopups);
+
+
     }
+}
+
+function finalFlash() {
+    const flashImage = document.createElement('img');
+    flashImage.src = './power.png'; // your final image
+    flashImage.id = "finalFlash"
+
+    document.body.appendChild(flashImage);
+
+    let flashes = 0;
+    const maxFlashes = 10; // flashes 3 times (show-hide cycles)
+
+    const flashInterval = setInterval(() => {
+        flashImage.style.opacity = (flashImage.style.opacity === '1' ? '0' : '1');
+        flashes++;
+
+        if (flashes >= maxFlashes) {
+            clearInterval(flashInterval);
+            setTimeout(() => {
+                body.innerHTML = ""; // remove it after flashing
+            }, 10);
+        }
+    }, 200); // flash every 200ms
+
+
 }

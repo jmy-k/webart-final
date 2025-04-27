@@ -70,13 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
     mailbox.addEventListener("click", () => {
         mailboxAlert = "no unread messages";
         mailbox.classList.remove("alert");
-        mailbox.style.backgroundImage = "url('./src/maildefault.png')";
+        mailbox.src = "./src/maildefault.png";
         loadMailPage()
     });
 
     about.addEventListener("click", () => {
         screen = "about"
         loadAboutPage();
+    })
+
+    document.getElementById("warningBox").style.visibility = "visible";
+    backgroundOverlay.style.opacity = "0.5";
+    document.getElementById("closeWarning").addEventListener("click", () => {
+        document.getElementById("warningBox").style.visibility = "hidden";
+        document.getElementById("backgroundOverlay").style.opacity = "0";
     })
 });
 
@@ -186,8 +193,9 @@ function loadMailPage() {
     mailOverlay.appendChild(mailHeader);
 
     let closeButton = document.createElement("div");
+    closeButton.classList.add("button");
     closeButton.id = "closeMailbox";
-    closeButton.innerHTML = "X";
+    closeButton.innerHTML = "&times;";
     closeButton.addEventListener("click", () => {
         overlayContainer.removeChild(mailOverlay);
         backgroundOverlay.style.opacity = 0;

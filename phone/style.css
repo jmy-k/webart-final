@@ -225,36 +225,6 @@ select {
     }
 }
 
-/* .glitch {
-    color: white;
-    position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
-    color: red;
-    z-index: -1;
-}
-
-.glitch::after {
-    color: blue;
-    left: 2px;
-    top: 2px;
-}
-
-.glitch::before {
-    color: green;
-    left: -2px;
-    top: -2px;
-} */
-
-
 .layers {
     position: relative;
 }

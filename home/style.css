@@ -3,48 +3,33 @@
     src: url('../src/W95FA.otf');
 }
 
-
 a:-webkit-any-link {
     color: inherit;
     text-decoration: none;
 }
 
-/* For Webkit browsers (Chrome, Safari, Edge) */
+/* Scrollbar Styling for Webkit browsers */
 ::-webkit-scrollbar {
     width: 16px;
-    /* Width of the vertical scrollbar */
     height: 16px;
-    /* Height of the horizontal scrollbar */
 }
 
-/* The part of the scrollbar that the user can interact with (the handle) */
 ::-webkit-scrollbar-thumb {
     background-color: #3b3b3b;
-
-    /* Rounded edges */
     border: 4px solid #2f2f2f;
-    /* Border around the thumb (retro blocky look) */
 }
 
-/* The track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
     background: #8c8c8c;
-
-    /* Match the thumb's border-radius */
 }
 
-/* Hover effect for the thumb */
 ::-webkit-scrollbar-thumb:hover {
     background-color: #5a5a5a;
-    /* Lighter grey when hovering over the thumb */
 }
-
-
 
 * {
     margin: 0;
     padding: 0;
-
 }
 
 
@@ -84,7 +69,7 @@ img {
     pointer-events: none;
     /* let cursor pass through */
     background-color: #222;
-    color: white;
+    color: #EEF4ED;
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 14px;
@@ -129,9 +114,23 @@ img {
     height: 48px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: #8DA9C4;
+    background: linear-gradient(to bottom, #8DA9C4, #6C8BA8);
+    border: 2px solid #0B2545;
+    border-top-color: #EEF4ED;
+    /* lighter top */
+    border-left-color: #EEF4ED;
+    /* lighter left */
+    border-bottom-color: #0B2545;
+    /* darker bottom */
+    border-right-color: #0B2545;
+    /* darker right */
     box-sizing: border-box;
     padding: 16px;
+    box-shadow:
+        2px 2px 0 #0B2545,
+        /* bottom-right dark shadow */
+        -2px -2px 0 #EEF4ED;
+    /* top-left light highlight */
 
     font-family: 'W95FA', sans-serif;
 }
@@ -144,9 +143,18 @@ img {
     width: 24px;
     height: 16px;
     padding-bottom: 0.25em;
-    background-color: white;
-    border: 1px solid #0B2545;
-    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+    background-color: #EEF4ED;
+    border: 2px solid #0B2545;
+    /* dark border as base */
+    border-top-color: #EEF4ED;
+    /* light top for bevel */
+    border-left-color: #EEF4ED;
+    /* light left for bevel */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+    box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
     transition: transform 0.5s ease, visibility 1s ease;
 }
 
@@ -154,29 +162,44 @@ img {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    align-items: left;
+    align-items: center;
+    /* justify-content: start; */
 
     width: 98%;
-
+    height: 90%;
 
     margin: 1%;
-    padding: 1%;
     box-sizing: border-box;
 
     background-image: url("../src/pixelbackground.png");
     background-position: center;
     background-size: 30%;
-    box-shadow: inset 0px 0px 5px 0px rgba(11, 37, 69, 0.75);
+    background-repeat: repeat;
+    background-color: #8DA9C4;
+    /* fallback color if image fails */
+
+    /* Thicker inset border */
+    border: 3px solid #0B2545;
+    border-top-color: #0B2545;
+    /* dark top */
+    border-left-color: #0B2545;
+    /* dark left */
+    border-right-color: #EEF4ED;
+    /* light right */
+    border-bottom-color: #EEF4ED;
+    /* light bottom */
+
+    /* Deep inset bevel */
+    box-shadow:
+        inset -3px -3px 0 #0B2545,
+        /* inner top-left dark */
+        inset 3px 3px 0 #EEF4ED;
+    /* inner bottom-right light */
 
     overflow-x: hidden;
-    overflow-y: scroll;
-    /* margin-right: calc(-1 * (100vw - 100%)); */
 }
 
-#navbar,
-#mainscreen {
-    border: 1px solid #0B2545;
-}
+
 
 #headerBar {
     display: flex;
@@ -184,12 +207,48 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 4px 32px;
+    /* top/bottom: 4px, left/right: 12px */
+    background-color: #C0C0C0;
+
+    border: 2px solid #0B2545;
+    border-top-color: #EEF4ED;
+    border-left-color: #EEF4ED;
+    border-right-color: #0B2545;
+    border-bottom-color: #0B2545;
+
+    box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
+    box-sizing: border-box;
 }
 
 .headerButton {
     width: 32px;
     height: 32px;
-    transition: transform 0.5s ease
+    padding: 4px;
+
+    /* background-size: cover; */
+
+    background-color: #C0C0C0;
+    /* classic Win95 gray */
+    border: 2px solid #0B2545;
+    /* base border */
+    border-top-color: #EEF4ED;
+    /* light top */
+    border-left-color: #EEF4ED;
+    /* light left */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+
+    box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.5s ease;
+    cursor: pointer;
 }
 
 .headerButton:hover {
@@ -197,18 +256,12 @@ img {
     transform: translateY(-2px);
 }
 
-#mailbox {
-    background-image: url('./src/mailAlert.png');
-
-}
-
-#profile {
-    background-image: url('./src/robot.png');
-}
-
-#about {
-    background-image: url('./src/about.png');
-
+.headerButton:active {
+    border-top-color: #0B2545;
+    border-left-color: #0B2545;
+    border-right-color: #EEF4ED;
+    border-bottom-color: #EEF4ED;
+    box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
 }
 
 #date {
@@ -220,11 +273,21 @@ img {
 }
 
 #titleText {
-    transition: transform 1s ease;
     min-width: 500px;
     height: 85px;
-    border: 1px solid #0B2545;
-    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+    border: 2px solid #0B2545;
+    /* base border color */
+    border-top-color: #0B2545;
+    /* dark top */
+    border-left-color: #0B2545;
+    /* dark left */
+    border-right-color: #EEF4ED;
+    /* light right */
+    border-bottom-color: #EEF4ED;
+    /* light bottom */
+
+    box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
+
     transition: transform 0.5s ease, visibility 1s ease;
 }
 
@@ -236,15 +299,14 @@ img {
     transform: translateY(2px);
 }
 
+
+
 .button {
     font-family: 'W95FA', sans-serif;
     font-size: 24px;
     text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    background-color: white;
+    /* padding: 0.25em 1em; */
+    background-color: #EEF4ED;
     border: 1px solid #0B2545;
     box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
     transition: transform 0.5s ease, visibility 1s ease;
@@ -259,7 +321,7 @@ img {
 .button:active {
     transform: translateY(2px);
     background-color: #0B2545;
-    color: white;
+    color: #EEF4ED;
     box-shadow: inset -1px -1px 4px 0px rgba(255, 255, 255, 0.75);
 }
 
@@ -291,19 +353,32 @@ img {
 
 #announcementbar {
     display: flex;
-    background: #13315C;
-    overflow: hidden;
-    background-color: rgba(#000, 0.9);
-
-    box-sizing: content-box;
-    min-width: 102%;
-    min-height: 14px;
-    height: fit-content;
     align-items: center;
     justify-content: space-evenly;
     gap: 16px;
-    padding: 4px;
+
+    background-color: #13315C;
+    color: #EEF4ED;
+
+    padding: 4px 8px;
+    height: fit-content;
+    height: 25px;
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 2px solid #0B2545;
+    border-top-color: #EEF4ED;
+    /* light top */
+    border-left-color: #EEF4ED;
+    /* light left */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+
+    box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
 }
+
 
 .marqueeWrapper {
     overflow: hidden;
@@ -329,7 +404,7 @@ img {
 .marqueeItem {
     padding: 0 2rem;
     font-size: 1rem;
-    color: white;
+    color: #EEF4ED;
 
 }
 
@@ -343,8 +418,21 @@ img {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
+
+    border: 2px solid #0B2545;
+    /* base border color */
+    border-top-color: #EEF4ED;
+    /* light for top */
+    border-left-color: #EEF4ED;
+    /* light for left */
+    border-right-color: #0B2545;
+    /* dark for right */
+    border-bottom-color: #0B2545;
+    /* dark for bottom */
+
+    box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
 }
+
 
 #musicButton:active {
     transform: translateY(1px);
@@ -406,7 +494,7 @@ img {
 
 .flicker {
     animation: flicker 1.5s infinite;
-    text-shadow: 0 0 2px #fff;
+    text-shadow: 0 0 2px #EEF4ED;
 }
 
 @keyframes flicker {
@@ -462,7 +550,7 @@ img {
 }
 
 .glitch {
-    color: white;
+    color: #EEF4ED;
     position: relative;
 }
 
@@ -516,6 +604,8 @@ img {
 
 #folderImage1 {
     grid-row: 2 / 6;
+    width: 99.9%;
+
 }
 
 #folderImage2 {
@@ -653,18 +743,23 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 64px;
-    height: 64px;
     bottom: 20%;
     right: 20%;
-
     font-size: 64px;
     text-align: center;
-
-    background-color: white;
-    border: 1px solid #0B2545;
-    box-shadow: inset -1px -1px 2px 1px rgba(11, 37, 69, 0.75);
+    color: black;
+    background: #a0a0a0;
+    border: 2px solid #333;
+    border-color: #333 #808080 #808080 #333;
+    box-shadow:
+        inset 2px 2px #EEF4ED,
+        /* top-left highlight */
+        inset -2px -2px #b6b6b6,
+        /* bottom-right shadow */
+        inset -1px -1px #dfdfdf,
+        /* inner bottom-right */
+        inset 1px 1px #7f7f7f;
+    /* inner top-left */
 }
 
 #closeMailbox:hover {
@@ -768,7 +863,7 @@ img {
     overflow-y: scroll;
     overflow-x: hidden;
 
-    background-color: white;
+    background-color: #EEF4ED;
     box-shadow: inset -1px -1px 4px 0px rgba(11, 37, 69, 0.75);
     border: 1px solid #0B2545;
 
@@ -825,13 +920,532 @@ img {
     width: fit-content;
     align-items: center;
     justify-content: center;
+    gap: 64px;
 }
 
 #howToText {
     white-space: pre-line;
-    width: 45%;
+    max-width: 40%;
 }
 
 .pageTitle {
     font-size: 24px;
+}
+
+
+
+#warningBox {
+    visibility: hidden;
+
+    position: absolute;
+    top: 20%;
+    left: 30%;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 16px;
+
+    max-width: 600px;
+    padding: 16px;
+    box-sizing: border-box;
+
+    background-color: #8DA9C4;
+    /* same blue */
+    color: black;
+    font-family: 'W95FA', sans-serif;
+    font-size: 16px;
+
+    border: 4px solid #0B2545;
+    border-top-color: #EEF4ED;
+    /* light top */
+    border-left-color: #EEF4ED;
+    /* light left */
+    border-right-color: #0B2545;
+    /* dark right */
+    border-bottom-color: #0B2545;
+    /* dark bottom */
+
+    box-shadow:
+        inset 4px 4px #8DA9C4,
+        /* slight inner highlight */
+        inset -4px -4px #0B2545;
+    /* slight inner shadow */
+
+    z-index: 1000;
+}
+
+#closeWarning {
+    background: #EEF4ED;
+    border: 2px solid #0B2545;
+    border-top-color: #EEF4ED;
+    border-left-color: #EEF4ED;
+    border-right-color: #0B2545;
+    border-bottom-color: #0B2545;
+
+    font-family: 'W95FA', sans-serif;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    padding: 4px;
+    margin: 0;
+    box-shadow:
+        inset 2px 2px #EEF4ED,
+        inset -2px -2px #0B2545;
+}
+
+/* Hover makes it look like you're pressing it */
+.close-btn:hover {
+    background-color: #b6cde1;
+    /* lighter blue on hover */
+    color: #0B2545;
+}
+
+.layers {
+    position: relative;
+}
+
+.layers::before,
+.layers::after {
+    content: attr(data-text);
+    position: absolute;
+    width: 110%;
+    z-index: -1;
+}
+
+.layers::before {
+    top: 10px;
+    left: 15px;
+    color: #e0287d;
+}
+
+.layers::after {
+    top: 5px;
+    left: -10px;
+    color: #1bc7fb;
+}
+
+.single-path {
+    clip-path: polygon(0% 12%,
+            53% 12%,
+            53% 26%,
+            25% 26%,
+            25% 86%,
+            31% 86%,
+            31% 0%,
+            53% 0%,
+            53% 84%,
+            92% 84%,
+            92% 82%,
+            70% 82%,
+            70% 29%,
+            78% 29%,
+            78% 65%,
+            69% 65%,
+            69% 66%,
+            77% 66%,
+            77% 45%,
+            85% 45%,
+            85% 26%,
+            97% 26%,
+            97% 28%,
+            84% 28%,
+            84% 34%,
+            54% 34%,
+            54% 89%,
+            30% 89%,
+            30% 58%,
+            83% 58%,
+            83% 5%,
+            68% 5%,
+            68% 36%,
+            62% 36%,
+            62% 1%,
+            12% 1%,
+            12% 34%,
+            60% 34%,
+            60% 57%,
+            98% 57%,
+            98% 83%,
+            1% 83%,
+            1% 53%,
+            91% 53%,
+            91% 84%,
+            8% 84%,
+            8% 83%,
+            4% 83%);
+}
+
+.paths {
+    animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+    0% {
+        clip-path: polygon(0% 43%,
+                83% 43%,
+                83% 22%,
+                23% 22%,
+                23% 24%,
+                91% 24%,
+                91% 26%,
+                18% 26%,
+                18% 83%,
+                29% 83%,
+                29% 17%,
+                41% 17%,
+                41% 39%,
+                18% 39%,
+                18% 82%,
+                54% 82%,
+                54% 88%,
+                19% 88%,
+                19% 4%,
+                39% 4%,
+                39% 14%,
+                76% 14%,
+                76% 52%,
+                23% 52%,
+                23% 35%,
+                19% 35%,
+                19% 8%,
+                36% 8%,
+                36% 31%,
+                73% 31%,
+                73% 16%,
+                1% 16%,
+                1% 56%,
+                50% 56%,
+                50% 8%);
+    }
+
+    5% {
+        clip-path: polygon(0% 29%,
+                44% 29%,
+                44% 83%,
+                94% 83%,
+                94% 56%,
+                11% 56%,
+                11% 64%,
+                94% 64%,
+                94% 70%,
+                88% 70%,
+                88% 32%,
+                18% 32%,
+                18% 96%,
+                10% 96%,
+                10% 62%,
+                9% 62%,
+                9% 84%,
+                68% 84%,
+                68% 50%,
+                52% 50%,
+                52% 55%,
+                35% 55%,
+                35% 87%,
+                25% 87%,
+                25% 39%,
+                15% 39%,
+                15% 88%,
+                52% 88%);
+    }
+
+    30% {
+        clip-path: polygon(0% 53%,
+                93% 53%,
+                93% 62%,
+                68% 62%,
+                68% 37%,
+                97% 37%,
+                97% 89%,
+                13% 89%,
+                13% 45%,
+                51% 45%,
+                51% 88%,
+                17% 88%,
+                17% 54%,
+                81% 54%,
+                81% 75%,
+                79% 75%,
+                79% 76%,
+                38% 76%,
+                38% 28%,
+                61% 28%,
+                61% 12%,
+                55% 12%,
+                55% 62%,
+                68% 62%,
+                68% 51%,
+                0% 51%,
+                0% 92%,
+                63% 92%,
+                63% 4%,
+                65% 4%);
+    }
+
+    45% {
+        clip-path: polygon(0% 33%,
+                2% 33%,
+                2% 69%,
+                58% 69%,
+                58% 94%,
+                55% 94%,
+                55% 25%,
+                33% 25%,
+                33% 85%,
+                16% 85%,
+                16% 19%,
+                5% 19%,
+                5% 20%,
+                79% 20%,
+                79% 96%,
+                93% 96%,
+                93% 50%,
+                5% 50%,
+                5% 74%,
+                55% 74%,
+                55% 57%,
+                96% 57%,
+                96% 59%,
+                87% 59%,
+                87% 65%,
+                82% 65%,
+                82% 39%,
+                63% 39%,
+                63% 92%,
+                4% 92%,
+                4% 36%,
+                24% 36%,
+                24% 70%,
+                1% 70%,
+                1% 43%,
+                15% 43%,
+                15% 28%,
+                23% 28%,
+                23% 71%,
+                90% 71%,
+                90% 86%,
+                97% 86%,
+                97% 1%,
+                60% 1%,
+                60% 67%,
+                71% 67%,
+                71% 91%,
+                17% 91%,
+                17% 14%,
+                39% 14%,
+                39% 30%,
+                58% 30%,
+                58% 11%,
+                52% 11%,
+                52% 83%,
+                68% 83%);
+    }
+
+    76% {
+        clip-path: polygon(0% 26%,
+                15% 26%,
+                15% 73%,
+                72% 73%,
+                72% 70%,
+                77% 70%,
+                77% 75%,
+                8% 75%,
+                8% 42%,
+                4% 42%,
+                4% 61%,
+                17% 61%,
+                17% 12%,
+                26% 12%,
+                26% 63%,
+                73% 63%,
+                73% 43%,
+                90% 43%,
+                90% 67%,
+                50% 67%,
+                50% 41%,
+                42% 41%,
+                42% 46%,
+                50% 46%,
+                50% 84%,
+                96% 84%,
+                96% 78%,
+                49% 78%,
+                49% 25%,
+                63% 25%,
+                63% 14%);
+    }
+
+    90% {
+        clip-path: polygon(0% 41%,
+                13% 41%,
+                13% 6%,
+                87% 6%,
+                87% 93%,
+                10% 93%,
+                10% 13%,
+                89% 13%,
+                89% 6%,
+                3% 6%,
+                3% 8%,
+                16% 8%,
+                16% 79%,
+                0% 79%,
+                0% 99%,
+                92% 99%,
+                92% 90%,
+                5% 90%,
+                5% 60%,
+                0% 60%,
+                0% 48%,
+                89% 48%,
+                89% 13%,
+                80% 13%,
+                80% 43%,
+                95% 43%,
+                95% 19%,
+                80% 19%,
+                80% 85%,
+                38% 85%,
+                38% 62%);
+    }
+
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+        clip-path: none;
+    }
+}
+
+.movement {
+    /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
+    position: relative;
+    animation: movement 8s step-end infinite;
+}
+
+@keyframes movement {
+    0% {
+        top: 0px;
+        left: -20px;
+    }
+
+    15% {
+        top: 10px;
+        left: 10px;
+    }
+
+    60% {
+        top: 5px;
+        left: -10px;
+    }
+
+    75% {
+        top: -5px;
+        left: 20px;
+    }
+
+    100% {
+        top: 10px;
+        left: 5px;
+    }
+}
+
+.opacity {
+    animation: opacity 5s step-end infinite;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0.1;
+    }
+
+    5% {
+        opacity: 0.7;
+    }
+
+    30% {
+        opacity: 0.4;
+    }
+
+    45% {
+        opacity: 0.6;
+    }
+
+    76% {
+        opacity: 0.4;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+        opacity: 0;
+    }
+}
+
+.font {
+    animation: font 7s step-end infinite;
+}
+
+@keyframes font {
+    0% {
+        font-weight: 100;
+        color: #e0287d;
+        filter: blur(3px);
+    }
+
+    20% {
+        font-weight: 500;
+        color: #fff;
+        filter: blur(0);
+    }
+
+    50% {
+        font-weight: 300;
+        color: #1bc7fb;
+        filter: blur(2px);
+    }
+
+    60% {
+        font-weight: 700;
+        color: #fff;
+        filter: blur(0);
+    }
+
+    90% {
+        font-weight: 500;
+        color: #e0287d;
+        filter: blur(6px);
+    }
+}
+
+.glitch {
+    animation: paths 5s step-end infinite;
+}
+
+.glitch::before {
+    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+        font 8s step-end infinite, movement 10s step-end infinite;
+}
+
+.glitch::after {
+    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+        font 7s step-end infinite, movement 8s step-end infinite;
 }

@@ -18,14 +18,13 @@
     <div id="navbar">
         <div class="navButton">--</div>
         <div class="navButton"></div>
-        <div class="navButton">X</div>
+        <div class="navButton">&times;</div>
     </div>
     <div id="mainscreen">
         <div id="announcementbar">
             <div class="marqueeWrapper">
                 <div class="marquee">
-                    <div class="marqueeItem"><b>Interruption incoming.</b> Maintenance window: June 4, 01:00–02:00 UTC.
-                        Stay still.</div>
+                    <div class="marqueeItem"><b>Interruption incoming.</b> Stay still.</div>
                     <div class="marqueeItem">You left something behind. We kept it.</div>
                     <div class="marqueeItem"><b>Reminder:</b> Visit your Memory Garden to keep your archive active.
                     </div>
@@ -37,15 +36,37 @@
             <div id="musicButton"></div>
         </div>
         <div id="headerBar">
-            <img id="titleText" src="./src/titlebanner.png"></img>
-            <div id="mailbox" class="headerButton alert"></div>
-            <div id="profile" class="headerButton"></div>
-            <div id="about" class="headerButton"></div>
+            <img id="titleText" src="./src/titlebanner.png">
+            <img id="mailbox" class="headerButton alert flicker" src="./src/mailAlert.png">
+            <img id="profile" class="headerButton" src="./src/robot.png">
+            <img id="about" class="headerButton glitch" src="./src/about.png">
             <div id="date" class="">1 June 2047</div>
         </div>
         <div id="homepageText">Welcome back. Last login: 7345 days ago.</div>
     </div>
+
     <div id="backgroundOverlay"></div>
+    <div id="warningBox" class="warning-box">
+        <span id="warningMessage"><b>Memory Garden - A Final Bloom</b>
+            <br><br>
+
+            Dear Gardeners,
+            <br><br>
+            In the quiet stillness of time, we announce that <i>Memory Garden</i> will no longer be updated. The garden
+            will
+            remain, its roots and flowers enduring, but no new blossoms will grow here. This space will stand as a
+            silent witness to the memories you have shared.
+            <br><br>
+            We are deeply grateful for your presence here — for each visit, each reflection. <i>Memory Garden</i> has
+            been a place of remembrance, a testament to what lingers in the spaces between moments. The garden will
+            remain open, but untended.
+            <br><br> Thank you for walking with us through these paths. We hope the garden’s echoes continue to resonate
+            with
+            you.
+            <br><br> With gratitude,
+            <br>Memory Garden</span>
+        <button id="closeWarning" class="close-btn">&times;</button>
+    </div>
     <div id="overlayContainer"></div>
     <div id="tooltip"></div>
     <div id="overlay"></div>
