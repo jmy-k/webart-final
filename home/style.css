@@ -938,8 +938,9 @@ img {
     visibility: hidden;
 
     position: absolute;
-    top: 20%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     /* align-items: center; */

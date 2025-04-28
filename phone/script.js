@@ -3,6 +3,7 @@ const form = document.getElementById("chat-form");
 const select = document.getElementById("answer");
 const videoEl = document.getElementById("bgVideo");
 const imgEl = document.getElementById("bgImage");
+const body = document.querySelector("body");
 
 // Define the branching dialogue structure
 const story = {
@@ -13,7 +14,7 @@ const story = {
         },
         responses: {
             walk: "do you have everything?<br> 攞齊嘢未?",
-            no: "what are you doing instead?<br> 忙咩啫？"
+            no: "what are you doing instead?<br> 忙咩啫?"
         },
         backgroundImages: {
             walk: "./walk.jpg"
@@ -50,7 +51,7 @@ const story = {
         },
         responses: {
             fear: "just dont carry your name. memorize the number.<br> theres like a 30% chance only if you're dumb.<br> 唔帶卡咪得囉. 記住自己number. 你on9咪俾人捉到囉.",
-            sthelse: "what are you doing instead? 忙咩啫？"
+            sthelse: "what are you doing instead? 忙咩啫?"
         },
         backgroundImages: {
             fear: "./permit.jpg"
@@ -70,7 +71,7 @@ const story = {
             different: "you're already involved and so is everyone else. there's safe houses in wanchai. <br>收皮啦...全香港已經投入. 灣仔有安全."
         },
         backgroundImages: {
-            rally: "./raptor.png"
+            rally: "./carrie.jpg"
         },
         next: {
             rally: "roach_path",
@@ -93,10 +94,12 @@ const story = {
     },
     roach_path: {
         options: {
-            reponse: "is it that serious? i'll be fine.<br> 使唔使咁誇張呀？"
+            serious: "is it that serious? i'll be fine.<br> 使唔使咁誇張呀?",
+            why: "why do we even bother? <br> 我哋咁做有咩意思?"
         },
         responses: {
-            reponse: "to them, you're just a roach.<br> 你係曱甴."
+            serious: "to them, you're just a roach.<br> 你係曱甴.",
+            why: "to them, you're just a roach.<br> 你係曱甴."
         },
         next: null
     },
@@ -106,7 +109,7 @@ const story = {
             work: "i have work.<br> 返工."
         },
         responses: {
-            mom: "the trees welcome you, and swallow your path. 啲樹歡迎你，含住你行嘅路",
+            mom: "the trees welcome you, and swallow your path.<br> 啲樹歡迎你, 含住你行嘅路. <div id='flower' href='../flower/index.html'></div>",
             work: "you work at a gallery and she doesnt even pay you.<br> 你買咩畫都搵唔到咩錢."
         },
         next: null
@@ -132,6 +135,7 @@ form.addEventListener("submit", function (e) {
     const choice = select.value;
     const option = story[currentNode].options[choice];
     const response = story[currentNode].responses[choice];
+    console.log("option: " + story[currentNode].options)
 
     form.querySelector("button").disabled = true;
     // Append user message
@@ -151,11 +155,6 @@ form.addEventListener("submit", function (e) {
     chatbox.scrollTop = chatbox.scrollHeight;
 
     setTimeout(() => {
-
-
-        console.log("Current Node:", currentNode);
-        console.log("Selected Choice:", choice);
-        console.log("Response:", story[currentNode]?.responses[choice]);
         // Append bot response
         const botMsg = document.createElement("div");
         botMsg.className = "messageText";
@@ -203,6 +202,13 @@ form.addEventListener("submit", function (e) {
         chatbox.scrollTop = chatbox.scrollHeight;
 
         form.querySelector("button").disabled = false;
+
+        const flowerLink = document.getElementById("flower");
+        if (flowerLink) {
+            flowerLink.addEventListener("click", function () {
+                window.location.href = "../flower/index.html";
+            });
+        }
         // Advance the story
         const nextNode = story[currentNode].next;
         if (nextNode && story[nextNode[choice]]) {
@@ -216,23 +222,7 @@ form.addEventListener("submit", function (e) {
 
 
 
-
     }, timeout = 1500);
-
-    // checkIfStoryCompleted()
 
 
 });
-
-function checkIfStoryCompleted() {
-    // If the current node has no options or responses left, disable the submit button
-    const currentOptions = story[currentNode]?.options;
-    const currentResponses = story[currentNode]?.responses;
-
-    // Check if there are no more options to choose from or the next node is undefined
-    if (!currentOptions || !currentResponses || currentOptions.length === 0 || currentResponses.length === 0 || !story[currentNode].next) {
-        console.log("story complete")
-        // Disable the submit button because the story is finished
-        form.querySelector("button").disabled = true;
-    }
-}

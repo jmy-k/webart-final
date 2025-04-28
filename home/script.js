@@ -122,6 +122,9 @@ function loadHomePage() {
     if (node == "2020") {
         folderNames.folderName2.innerHTML = "re_entry_log??_MISSING.emote";
         folderNames.folderName3.innerHTML = "[⬛]noentry";
+        folderNames.folderName3.addEventListener("click", () => {
+            openWarning()
+        })
         folderNames.folderName3.classList.add("glitch");
         folderNames.folderName4.innerHTML = "he☐llo";
         folderNames.folderName4.addEventListener("click", () => {
@@ -406,4 +409,19 @@ function typeText(text) {
             clearInterval(typingInterval);  // Stop the typing when the text is done
         }
     }, 30);  // 30ms per character
+}
+
+
+function openWarning() {
+    let warningMessage = document.getElementById("warningMessage");
+    warningMessage.innerHTML = "Memory ID: [REDACTED]<br> Status: <strong>Inaccessible</strong><br>Reason: Insufficient traversal depth.<br>Action Required: Navigate related memory nodes to unlock."
+    document.getElementById("warningBox").style.visibility = "visible";
+    backgroundOverlay.style.opacity = "0.5";
+    warningMessage.addEventListener("mouseover", () => {
+        tooltip.innerHTML = "need to do some digging first...";
+        tooltip.style.opacity = 1;
+    })
+    warningMessage.addEventListener("mouseleave", () => {
+        tooltip.style.opacity = "0";
+    });
 }

@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+}
+
+#gridContainer,
+.column {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#gridContainer {}
+
+.column {
+    flex-direction: column;
+    flex-grow: 2;
+    flex-shrink: 2;
+    flex-basis: 1;
+    /* flex-grow: 1; */
+}
+
+.horizontalHandle,
+.verticalHandle {
+    background: black;
+    position: absolute;
+    z-index: 1;
+}
+
+.horizontalHandle {
+    width: 10px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    cursor: col-resize;
+
+}
+
+.verticalHandle {
+    width: 100%;
+    height: 10px;
+    bottom: 0;
+    cursor: row-resize;
+}
+
+
+.cell {
+    background: lightgrey;
+    /* resize: both; */
+    overflow: auto;
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    background-size: cover;
+    background-position: left;
+    image-rendering: pixelated;
+
+    opacity: 0;
+}
+
+.cell.show {
+    opacity: 1;
+}
+
+#cell1 {
+    background-image: url("./src/bridge.png");
+}
+
+#cell2 {
+    background-image: url("./src/cotton.png");
+}
+
+#cell3 {
+    background-image: url("./src/dusk.png");
+}
+
+#cell4 {
+    background-image: url("./src/dongdong.png");
+}
+
+#cell5 {
+    background-image: url("./src/evening.png");
+}
+
+#cell6 {
+    background-image: url("./src/build.png");
+}
+
+#cell7 {
+    background-image: url("./src/free.png");
+}
+
+#cell8 {
+    background-image: url("./src/lightmoon.png");
+}
+
+#cell9 {
+    background-image: url("./src/morn.png");
+}
+
+#cell10 {
+    background-image: url("./src/night.png");
+}
+
+#cell11 {
+    background-image: url("./src/otw.png");
+}
+
+#cell12 {
+    background-image: url("./src/summer.png");
+}
+
+#cell13 {
+    background-image: url("./src/sunset.png");
+}
+
+#cell14 {
+    background-image: url("./src/bright.png");
+}
+
+#cell15 {
+    background-image: url("./src/window.png");
+}
+
+#cell16 {
+    background-image: url("./src/storm.png");
+}
+
+#cell17 {
+    background-image: url("./src/cloud.png");
+}
+
+#cell18 {
+    background-image: url("./src/day.png");
+}

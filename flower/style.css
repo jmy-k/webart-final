@@ -1,0 +1,144 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    overflow: hidden;
+}
+
+#flowerContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+
+    height: fit-content;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-around;
+
+}
+
+img {
+    width: auto;
+    height: 200px;
+
+    opacity: 0;
+    pointer-events: none;
+    /* Disable interaction */
+    transition: opacity 0.3s ease;
+    /* Fade effect when spotlight reaches */
+}
+
+.candle {
+    width: 50px;
+    height: 150px;
+    background-color: #8B4513;
+    /* Candle body color (brown) */
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 50px;
+}
+
+/* The flame part of the candle */
+.flame {
+    width: 20px;
+    height: 40px;
+    background-color: #FF8C00;
+    /* Orange-yellow flame color */
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    animation: flicker 0.1s infinite alternate;
+}
+
+/* Keyframes for flickering effect */
+@keyframes flicker {
+    0% {
+        opacity: 0.9;
+        transform: translateY(-10px) scale(1);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateY(-12px) scale(1.05);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    75% {
+        opacity: 0.9;
+        transform: translateY(-8px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+}
+
+
+/* Style for images */
+.flower {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    /* Disable interaction */
+    transition: opacity 0.3s ease;
+    /* Fade effect */
+    filter: invert(1);
+}
+
+/* Style for the spotlight */
+.spotlight {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    /* Lightened area */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: lighten;
+    z-index: 999;
+}
+
+.flower.revealed {
+    opacity: 1;
+    /* Reveals the flower image */
+}
+
+/* Masking Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    pointer-events: none;
+    /* Let mouse events pass through */
+    z-index: 999;
+
+    /* Spotlight effect */
+    mask-image: radial-gradient(circle, transparent 100px, black 100px);
+    -webkit-mask-image: radial-gradient(circle, transparent 100px, black 100px);
+
+    /* Position the mask based on cursor */
+    mask-position: center center;
+    -webkit-mask-position: center center;
+
+    /* Ensure it covers the screen and the spotlight is the only visible part */
+    mask-size: 100% 100%;
+    /* Covers the full page */
+    -webkit-mask-size: 100% 100%;
+
+    /* Optional smooth transition for spotlight effect */
+    transition: mask-position 0.1s ease;
+}
