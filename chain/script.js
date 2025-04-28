@@ -1,6 +1,43 @@
 // Select all columns
 const columns = document.querySelectorAll('.column');
 
+let lavender = document.createElement('img');
+lavender.src = "src/lavender.png";
+lavender.id = "lavender";
+lavender.className = "smallImage"
+
+let watch = document.createElement('img');
+watch.src = "src/watch.png";
+watch.id = "watch";
+watch.className = "smallImage"
+
+
+let skates = document.createElement('img');
+skates.src = "src/skates.png";
+skates.id = "skates";
+skates.className = "smallImage"
+
+
+let hair = document.createElement('img');
+hair.src = "src/hair.png";
+hair.id = "hair";
+hair.className = "smallImage"
+
+let medicine = document.createElement('img');
+medicine.src = "src/medicine.png";
+medicine.id = "medicine";
+medicine.className = "smallImage"
+
+let bag = document.createElement('img');
+bag.src = "src/bag.png";
+bag.id = "bag";
+bag.className = "smallImage"
+
+let book = document.createElement('img');
+book.src = "src/book.png";
+book.id = "book";
+book.className = "smallImage"
+
 // Function to handle resizing
 let isResizingWidth = false;
 let startX = 0;
@@ -106,12 +143,13 @@ let chain18 = document.getElementById("chain18");
 
 chain1.addEventListener("click", function () {
     chain1.classList.remove("show");
-    cell1.textContent = "hello";
+    cell1.appendChild(lavender);
     chain16.classList.add("show");
 });
 
 chain16.addEventListener("click", function () {
     chain16.classList.remove("show");
+    cell1.removeChild(lavender);
     chain1.classList.add("show");
 });
 
@@ -137,31 +175,37 @@ chain13.addEventListener("click", function () {
 
 chain7.addEventListener("click", function () {
     chain7.classList.remove("show");
+    cell17.removeChild(watch);
     chain17.classList.add("show");
 });
 
 chain17.addEventListener("click", function () {
     chain17.classList.remove("show");
+    cell17.appendChild(watch);
     chain7.classList.add("show");
 });
 
 chain15.addEventListener("click", function () {
     chain15.classList.remove("show");
+    cell15.appendChild(bag);
     chain5.classList.add("show");
 });
 
 chain5.addEventListener("click", function () {
     chain5.classList.remove("show");
     chain15.classList.add("show");
+    cell15.removeChild(bag);
 });
 
 chain2.addEventListener("click", function () {
     chain2.classList.remove("show");
     chain9.classList.add("show");
+    cell9.removeChild(medicine);
 });
 
 chain9.addEventListener("click", function () {
     chain9.classList.remove("show");
+    cell9.appendChild(medicine);
     chain2.classList.add("show");
 });
 
@@ -177,21 +221,25 @@ chain11.addEventListener("click", function () {
 
 chain3.addEventListener("click", function () {
     chain3.classList.remove("show");
+    cell12.removeChild(skates);
+
     chain12.classList.add("show");
 });
 
 chain12.addEventListener("click", function () {
     chain12.classList.remove("show");
+    cell12.appendChild(skates);
     chain3.classList.add("show");
 });
 
 chain18.addEventListener("click", function () {
     chain18.classList.remove("show");
+    cell18.appendChild(hair);
     chain10.classList.add("show");
 });
 
 chain10.addEventListener("click", function () {
     chain10.classList.remove("show");
-    cell10.textContent = "hello";
     chain18.classList.add("show");
-}); s
+    cell18.removeChild(hair);
+});
