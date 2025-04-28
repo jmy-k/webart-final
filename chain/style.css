@@ -50,91 +50,96 @@ body {
 
 
 .cell {
-    background: lightgrey;
+    background: #111;
     /* resize: both; */
     overflow: auto;
     flex-grow: 1;
     box-sizing: border-box;
-
-    background-size: cover;
-    background-position: left;
-    image-rendering: pixelated;
-
-    opacity: 0;
+    color: white;
 }
 
-.cell.show {
+.chain.show {
     opacity: 1;
 }
 
-#cell1 {
+.chain {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: left;
+    image-rendering: pixelated;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+#chain1 {
     background-image: url("./src/bridge.png");
 }
 
-#cell2 {
+#chain2 {
     background-image: url("./src/cotton.png");
 }
 
-#cell3 {
+#chain3 {
     background-image: url("./src/dusk.png");
 }
 
-#cell4 {
+#chain4 {
     background-image: url("./src/dongdong.png");
 }
 
-#cell5 {
+#chain5 {
     background-image: url("./src/evening.png");
 }
 
-#cell6 {
+#chain6 {
     background-image: url("./src/build.png");
 }
 
-#cell7 {
+#chain7 {
     background-image: url("./src/free.png");
 }
 
-#cell8 {
+#chain8 {
     background-image: url("./src/lightmoon.png");
 }
 
-#cell9 {
+#chain9 {
     background-image: url("./src/morn.png");
 }
 
-#cell10 {
+#chain10 {
     background-image: url("./src/night.png");
 }
 
-#cell11 {
+#chain11 {
     background-image: url("./src/otw.png");
 }
 
-#cell12 {
+#chain12 {
     background-image: url("./src/summer.png");
 }
 
-#cell13 {
+#chain13 {
     background-image: url("./src/sunset.png");
 }
 
-#cell14 {
+#chain14 {
     background-image: url("./src/bright.png");
 }
 
-#cell15 {
+#chain15 {
     background-image: url("./src/window.png");
 }
 
-#cell16 {
+#chain16 {
     background-image: url("./src/storm.png");
 }
 
-#cell17 {
+#chain17 {
     background-image: url("./src/cloud.png");
 }
 
-#cell18 {
+#chain18 {
     background-image: url("./src/day.png");
 }

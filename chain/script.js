@@ -84,112 +84,114 @@ document.addEventListener('mouseup', () => {
     document.body.style.cursor = 'auto'; // reset cursor
 });
 
-//let cell1 = document.getElementById("cell1");
-let cell2 = document.getElementById("cell2");
-let cell3 = document.getElementById("cell3");
-let cell4 = document.getElementById("cell4");
-let cell5 = document.getElementById("cell5");
-let cell6 = document.getElementById("cell6");
-let cell7 = document.getElementById("cell7");
-let cell8 = document.getElementById("cell8");
-let cell9 = document.getElementById("cell9");
-let cell10 = document.getElementById("cell10");
-let cell11 = document.getElementById("cell11");
-let cell12 = document.getElementById("cell12");
-let cell13 = document.getElementById("cell13");
-let cell14 = document.getElementById("cell14");
-let cell15 = document.getElementById("cell15");
-let cell16 = document.getElementById("cell16");
-let cell17 = document.getElementById("cell17");
-let cell18 = document.getElementById("cell18");
+let chain1 = document.getElementById("chain1");
+let chain2 = document.getElementById("chain2");
+let chain3 = document.getElementById("chain3");
+let chain4 = document.getElementById("chain4");
+let chain5 = document.getElementById("chain5");
+let chain6 = document.getElementById("chain6");
+let chain7 = document.getElementById("chain7");
+let chain8 = document.getElementById("chain8");
+let chain9 = document.getElementById("chain9");
+let chain10 = document.getElementById("chain10");
+let chain11 = document.getElementById("chain11");
+let chain12 = document.getElementById("chain12");
+let chain13 = document.getElementById("chain13");
+let chain14 = document.getElementById("chain14");
+let chain15 = document.getElementById("chain15");
+let chain16 = document.getElementById("chain16");
+let chain17 = document.getElementById("chain17");
+let chain18 = document.getElementById("chain18");
 
 
-cell1.addEventListener("click", function () {
-    cell1.classList.remove("show");
-    cell16.classList.add("show");
+chain1.addEventListener("click", function () {
+    chain1.classList.remove("show");
+    cell1.textContent = "hello";
+    chain16.classList.add("show");
 });
 
-cell16.addEventListener("click", function () {
-    cell16.classList.remove("show");
-    cell1.classList.add("show");
+chain16.addEventListener("click", function () {
+    chain16.classList.remove("show");
+    chain1.classList.add("show");
 });
 
-cell4.addEventListener("click", function () {
-    cell4.classList.remove("show");
-    cell14.classList.add("show");
+chain4.addEventListener("click", function () {
+    chain4.classList.remove("show");
+    chain14.classList.add("show");
 });
 
-cell14.addEventListener("click", function () {
-    cell14.classList.remove("show");
-    cell4.classList.add("show");
+chain14.addEventListener("click", function () {
+    chain14.classList.remove("show");
+    chain4.classList.add("show");
 });
 
-cell6.addEventListener("click", function () {
-    cell6.classList.remove("show");
-    cell13.classList.add("show");
+chain6.addEventListener("click", function () {
+    chain6.classList.remove("show");
+    chain13.classList.add("show");
 });
 
-cell13.addEventListener("click", function () {
-    cell13.classList.remove("show");
-    cell6.classList.add("show");
+chain13.addEventListener("click", function () {
+    chain13.classList.remove("show");
+    chain6.classList.add("show");
 });
 
-cell7.addEventListener("click", function () {
-    cell7.classList.remove("show");
-    cell17.classList.add("show");
+chain7.addEventListener("click", function () {
+    chain7.classList.remove("show");
+    chain17.classList.add("show");
 });
 
-cell17.addEventListener("click", function () {
-    cell17.classList.remove("show");
-    cell7.classList.add("show");
+chain17.addEventListener("click", function () {
+    chain17.classList.remove("show");
+    chain7.classList.add("show");
 });
 
-cell15.addEventListener("click", function () {
-    cell15.classList.remove("show");
-    cell5.classList.add("show");
+chain15.addEventListener("click", function () {
+    chain15.classList.remove("show");
+    chain5.classList.add("show");
 });
 
-cell5.addEventListener("click", function () {
-    cell5.classList.remove("show");
-    cell15.classList.add("show");
+chain5.addEventListener("click", function () {
+    chain5.classList.remove("show");
+    chain15.classList.add("show");
 });
 
-cell2.addEventListener("click", function () {
-    cell2.classList.remove("show");
-    cell9.classList.add("show");
+chain2.addEventListener("click", function () {
+    chain2.classList.remove("show");
+    chain9.classList.add("show");
 });
 
-cell9.addEventListener("click", function () {
-    cell9.classList.remove("show");
-    cell2.classList.add("show");
+chain9.addEventListener("click", function () {
+    chain9.classList.remove("show");
+    chain2.classList.add("show");
 });
 
-cell8.addEventListener("click", function () {
-    cell8.classList.remove("show");
-    cell11.classList.add("show");
+chain8.addEventListener("click", function () {
+    chain8.classList.remove("show");
+    chain11.classList.add("show");
 });
 
-cell11.addEventListener("click", function () {
-    cell11.classList.remove("show");
-    cell8.classList.add("show");
+chain11.addEventListener("click", function () {
+    chain11.classList.remove("show");
+    chain8.classList.add("show");
 });
 
-cell3.addEventListener("click", function () {
-    cell3.classList.remove("show");
-    cell12.classList.add("show");
+chain3.addEventListener("click", function () {
+    chain3.classList.remove("show");
+    chain12.classList.add("show");
 });
 
-cell12.addEventListener("click", function () {
-    cell12.classList.remove("show");
-    cell3.classList.add("show");
+chain12.addEventListener("click", function () {
+    chain12.classList.remove("show");
+    chain3.classList.add("show");
 });
 
-cell18.addEventListener("click", function () {
-    cell18.classList.remove("show");
-    cell10.classList.add("show");
+chain18.addEventListener("click", function () {
+    chain18.classList.remove("show");
+    chain10.classList.add("show");
 });
 
-cell10.addEventListener("click", function () {
-    cell10.classList.remove("show");
-    cell18.classList.add("show");
-});
+chain10.addEventListener("click", function () {
+    chain10.classList.remove("show");
+    cell10.textContent = "hello";
+    chain18.classList.add("show");
+}); s
