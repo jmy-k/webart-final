@@ -208,28 +208,28 @@ function loadMailPage() {
 
     let mailContents = document.createElement("div");
     mailContents.id = "mailContents";
-    mailContents.addEventListener("mouseover", () => {
-        if (messageOpen == "joinnow") {
-            tooltip.innerHTML = "yikes. don't think we're missing out much.";
-        }
-        else if (messageOpen == "apology") {
-            tooltip.innerHTML = "i guess some memories are lost forever.";
-        }
-        else if (messageOpen == "wemissyou") {
-            tooltip.innerHTML = "seems like it's been a while since the last upload."
-        }
-        else if (messageOpen == "sticky") {
-            tooltip.innerHTML = "a potential ally...?"
-        }
-        else {
-            tooltip.innerHTML = "is it okay to read these?"
-        }
+    // mailContents.addEventListener("mouseover", () => {
+    //     if (messageOpen == "joinnow") {
+    //         tooltip.innerHTML = "yikes. don't think we're missing out much.";
+    //     }
+    //     else if (messageOpen == "apology") {
+    //         tooltip.innerHTML = "i guess some memories are lost forever.";
+    //     }
+    //     else if (messageOpen == "wemissyou") {
+    //         tooltip.innerHTML = "seems like it's been a while since the last upload."
+    //     }
+    //     else if (messageOpen == "sticky") {
+    //         tooltip.innerHTML = "a potential ally...?"
+    //     }
+    //     else {
+    //         tooltip.innerHTML = "is it okay to read these?"
+    //     }
 
-        tooltip.style.opacity = 1;
-    })
-    mailContents.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = "0";
-    });
+    //     tooltip.style.opacity = 1;
+    // })
+    // mailContents.addEventListener("mouseleave", () => {
+    //     tooltip.style.opacity = "0";
+    // });
 
     let mailContainer = document.createElement("div");
     mailContainer.id = "mailContainer";
@@ -272,13 +272,13 @@ function loadMailPage() {
 
             });
 
-            mailItem.addEventListener("mouseover", () => {
-                tooltip.innerHTML = "once a powerful symbol";
-                tooltip.style.opacity = 1;
-            })
-            mailItem.addEventListener("mouseleave", () => {
-                tooltip.style.opacity = "0";
-            });
+            // mailItem.addEventListener("mouseover", () => {
+            //     tooltip.innerHTML = "once a powerful symbol";
+            //     tooltip.style.opacity = 1;
+            // })
+            // mailItem.addEventListener("mouseleave", () => {
+            //     tooltip.style.opacity = "0";
+            // });
         }
         else if (i == 3) {
             mailItem.addEventListener("click", () => {
@@ -314,13 +314,13 @@ function loadMailPage() {
 
             });
 
-            mailItem.addEventListener("mouseover", () => {
-                tooltip.innerHTML = "latest message...";
-                tooltip.style.opacity = 1;
-            })
-            mailItem.addEventListener("mouseleave", () => {
-                tooltip.style.opacity = "0";
-            });
+            // mailItem.addEventListener("mouseover", () => {
+            //     tooltip.innerHTML = "latest message...";
+            //     tooltip.style.opacity = 1;
+            // })
+            // mailItem.addEventListener("mouseleave", () => {
+            //     tooltip.style.opacity = "0";
+            // });
         }
     }
     mailOverlay.appendChild(mailContainer);
@@ -346,13 +346,13 @@ function loadAboutPage() {
     let founderContainer = document.createElement("div");
     founderContainer.id = "founder";
 
-    founderContainer.addEventListener("mouseover", () => {
-        tooltip.innerHTML = "<b>the </b> cloud...";
-        tooltip.style.opacity = 1;
-    })
-    founderContainer.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = "0";
-    });
+    // founderContainer.addEventListener("mouseover", () => {
+    //     tooltip.innerHTML = "<b>the </b> cloud...";
+    //     tooltip.style.opacity = 1;
+    // })
+    // founderContainer.addEventListener("mouseleave", () => {
+    //     tooltip.style.opacity = "0";
+    // });
 
     let founderIMG = document.createElement("img");
     founderIMG.src = "./src/founder.jpg";
@@ -417,11 +417,11 @@ function openWarning() {
     warningMessage.innerHTML = "Memory ID: [REDACTED]<br> Status: <strong>Inaccessible</strong><br>Reason: Insufficient traversal depth.<br>Action Required: Navigate related memory nodes to unlock."
     document.getElementById("warningBox").style.visibility = "visible";
     backgroundOverlay.style.opacity = "0.5";
-    warningMessage.addEventListener("mouseover", () => {
-        tooltip.innerHTML = "need to do some digging first...";
-        tooltip.style.opacity = 1;
-    })
-    warningMessage.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = "0";
-    });
+    //     warningMessage.addEventListener("mouseover", () => {
+    //         tooltip.innerHTML = "need to do some digging first...";
+    //         tooltip.style.opacity = 1;
+    //     })
+    //     warningMessage.addEventListener("mouseleave", () => {
+    //         tooltip.style.opacity = "0";
+    //     });
 }

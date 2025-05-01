@@ -205,7 +205,6 @@ body {
 #medicine {
     top: 50%;
     left: 50%;
-    max-width: 500px;
+    max-width: 300px;
+    image-rendering: pixelated;
 }
-
-ew43
