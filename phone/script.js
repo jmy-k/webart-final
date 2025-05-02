@@ -54,7 +54,7 @@ const story = {
             sthelse: "what are you doing instead? 忙咩啫?"
         },
         backgroundImages: {
-            fear: "./permit.jpg"
+            fear: "./permit.png"
         },
         next: {
             fear: "map_path",
@@ -101,12 +101,18 @@ const story = {
             serious: "to them, you're just a roach.<br> 你係曱甴.",
             why: "to them, you're just a roach.<br> 你係曱甴."
         },
+        backgroundVideos: {
+            serious: "./waves.mp4",
+            why: "./waves.mp4"
+        },
         next: null
     },
     escape_path: {
         options: {
             mom: "its my moms bday.<br> 我媽咪生日.",
             work: "i have work.<br> 返工."
+        }, backgroundImages: {
+            mom: ""
         },
         responses: {
             mom: "the trees welcome you, and swallow your path.<br> 啲樹歡迎你, 含住你行嘅路. <div id='flower' href='../flower/index.html'></div>",
@@ -117,6 +123,8 @@ const story = {
 };
 
 let currentNode = "start";
+
+
 
 function populateOptions(options) {
     select.innerHTML = "";
@@ -135,7 +143,7 @@ form.addEventListener("submit", function (e) {
     const choice = select.value;
     const option = story[currentNode].options[choice];
     const response = story[currentNode].responses[choice];
-    console.log("option: " + story[currentNode].options)
+    console.log("option: " + response)
 
     form.querySelector("button").disabled = true;
     // Append user message
@@ -177,7 +185,7 @@ form.addEventListener("submit", function (e) {
         imgEl.classList.remove("active");
         videoEl.pause();
 
-        // set video if available
+        // set video if available 
         if (bgVideo) {
             videoEl.src = bgVideo;
             videoEl.load();
@@ -203,12 +211,7 @@ form.addEventListener("submit", function (e) {
 
         form.querySelector("button").disabled = false;
 
-        const flowerLink = document.getElementById("flower");
-        if (flowerLink) {
-            flowerLink.addEventListener("click", function () {
-                window.location.href = "../flower/index.html";
-            });
-        }
+
         // Advance the story
         const nextNode = story[currentNode].next;
         if (nextNode && story[nextNode[choice]]) {
@@ -220,7 +223,12 @@ form.addEventListener("submit", function (e) {
             form.querySelector("button").disabled = true;
         }
 
-
+        const flowerLink = document.getElementById("flower");
+        if (flowerLink) {
+            flowerLink.addEventListener("click", function () {
+                window.open('../flower/index.html', '_blank').focus()
+            });
+        }
 
     }, timeout = 1500);
 

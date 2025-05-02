@@ -116,14 +116,6 @@ img {
     border-top-left-radius: 25px;
     background: linear-gradient(to bottom, #8DA9C4, #6C8BA8);
     border: 2px solid #0B2545;
-    border-top-color: #EEF4ED;
-    /* lighter top */
-    border-left-color: #EEF4ED;
-    /* lighter left */
-    border-bottom-color: #0B2545;
-    /* darker bottom */
-    border-right-color: #0B2545;
-    /* darker right */
     box-sizing: border-box;
     padding: 16px;
     box-shadow:
@@ -145,15 +137,9 @@ img {
     padding-bottom: 0.25em;
     background-color: #EEF4ED;
     border: 2px solid #0B2545;
-    /* dark border as base */
     border-top-color: #EEF4ED;
-    /* light top for bevel */
-    border-left-color: #EEF4ED;
-    /* light left for bevel */
     border-right-color: #0B2545;
-    /* dark right */
-    border-bottom-color: #0B2545;
-    /* dark bottom */
+
     box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
     transition: transform 0.5s ease, visibility 1s ease;
 }
@@ -212,10 +198,6 @@ img {
     background-color: #C0C0C0;
 
     border: 2px solid #0B2545;
-    border-top-color: #EEF4ED;
-    border-left-color: #EEF4ED;
-    border-right-color: #0B2545;
-    border-bottom-color: #0B2545;
 
     box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
     box-sizing: border-box;
@@ -231,15 +213,7 @@ img {
     background-color: #C0C0C0;
     /* classic Win95 gray */
     border: 2px solid #0B2545;
-    /* base border */
-    border-top-color: #EEF4ED;
-    /* light top */
-    border-left-color: #EEF4ED;
-    /* light left */
-    border-right-color: #0B2545;
-    /* dark right */
-    border-bottom-color: #0B2545;
-    /* dark bottom */
+
 
     box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
 
@@ -367,16 +341,9 @@ img {
     box-sizing: border-box;
 
     border: 2px solid #0B2545;
-    border-top-color: #EEF4ED;
-    /* light top */
-    border-left-color: #EEF4ED;
-    /* light left */
-    border-right-color: #0B2545;
-    /* dark right */
-    border-bottom-color: #0B2545;
-    /* dark bottom */
 
-    box-shadow: inset -1px -1px 0 #EEF4ED, inset 1px 1px 0 #0B2545;
+
+    box-shadow: inset -1px -1px 0 #0B2545, inset 1px 1px 0 #EEF4ED;
 }
 
 
@@ -413,23 +380,13 @@ img {
     padding: 10px;
     background-color: #8DA9C4;
     min-width: 40px;
-    height: 14px;
+    height: 24px;
     background-image: url("./src/paused.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 
     border: 2px solid #0B2545;
-    /* base border color */
-    border-top-color: #EEF4ED;
-    /* light for top */
-    border-left-color: #EEF4ED;
-    /* light for left */
-    border-right-color: #0B2545;
-    /* dark for right */
-    border-bottom-color: #0B2545;
-    /* dark for bottom */
-
     box-shadow: inset 1px 1px 0 #EEF4ED, inset -1px -1px 0 #0B2545;
 }
 
@@ -549,7 +506,7 @@ img {
     }
 }
 
-.glitch {
+/* .glitch {
     color: #EEF4ED;
     position: relative;
 }
@@ -576,7 +533,7 @@ img {
     color: green;
     left: -2px;
     top: -2px;
-}
+} */
 
 .freeze:hover {
     transform: scale(1.02) rotate(-0.5deg);
@@ -958,17 +915,9 @@ img {
     font-size: 16px;
 
     border: 4px solid #0B2545;
-    border-top-color: #EEF4ED;
-    /* light top */
-    border-left-color: #EEF4ED;
-    /* light left */
-    border-right-color: #0B2545;
-    /* dark right */
-    border-bottom-color: #0B2545;
-    /* dark bottom */
 
     box-shadow:
-        inset 4px 4px #8DA9C4,
+        inset 4px 4px #EEF4ED,
         /* slight inner highlight */
         inset -4px -4px #0B2545;
     /* slight inner shadow */
@@ -977,12 +926,8 @@ img {
 }
 
 #closeWarning {
-    background: #EEF4ED;
+    background-color: #EEF4ED;
     border: 2px solid #0B2545;
-    border-top-color: #EEF4ED;
-    border-left-color: #EEF4ED;
-    border-right-color: #0B2545;
-    border-bottom-color: #0B2545;
 
     font-family: 'W95FA', sans-serif;
     font-size: 20px;
@@ -1449,4 +1394,13 @@ img {
 .glitch::after {
     animation: paths 5s step-end infinite, opacity 5s step-end infinite,
         font 7s step-end infinite, movement 8s step-end infinite;
+}
+
+
+
+.bevelout {
+    border-top-color: #EEF4ED;
+    border-left-color: #EEF4ED;
+    border-right-color: #0B2545;
+    border-bottom-color: #0B2545;
 }

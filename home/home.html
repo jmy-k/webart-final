@@ -15,13 +15,13 @@
 
 <body>
     <audio id="backgroundMusic" preload="auto" loop src="./src/RioTuEdIo.mp3"></audio>
-    <div id="navbar">
+    <div id="navbar" class="bevelout">
         <div class="navButton">--</div>
         <div class="navButton"></div>
         <div class="navButton">&times;</div>
     </div>
     <div id="mainscreen">
-        <div id="announcementbar">
+        <div id="announcementbar" class="">
             <div class="marqueeWrapper">
                 <div class="marquee">
                     <div class="marqueeItem"><b>Interruption incoming.</b> Stay still.</div>
@@ -33,20 +33,20 @@
                     <div class="marqueeItem">Every click leaves a trace.</div>
                 </div>
             </div>
-            <div id="musicButton"></div>
+            <div id="musicButton" class="bevelout"></div>
         </div>
-        <div id="headerBar">
+        <div id="headerBar" class="bevelout">
             <img id="titleText" src="./src/titlebanner.png">
-            <img id="mailbox" class="headerButton alert flicker" src="./src/mailAlert.png">
-            <img id="profile" class="headerButton" src="./src/robot.png">
-            <img id="about" class="headerButton glitch" src="./src/about.png">
+            <img id="mailbox" class="headerButton alert bevelout" src="./src/mailAlert.png">
+            <img id="profile" class="headerButton bevelout flicker" src="./src/robot.png">
+            <img id="about" class="headerButton glitch bevelout" src="./src/about.png">
             <div id="date" class="">1 June 2047</div>
         </div>
         <div id="homepageText">Welcome back. Last login: 7345 days ago.</div>
     </div>
 
     <div id="backgroundOverlay"></div>
-    <div id="warningBox" class="warning-box">
+    <div id="warningBox" class="warning-box bevelout">
         <span id="warningMessage"><b>Memory Garden - A Final Bloom</b>
             <br><br>
 
@@ -65,7 +65,7 @@
             you.
             <br><br> With gratitude,
             <br>Memory Garden</span>
-        <button id="closeWarning" class="close-btn">&times;</button>
+        <button id="closeWarning" class="close-btn bevelout">&times;</button>
     </div>
     <div id="overlayContainer"></div>
     <div id="tooltip"></div>

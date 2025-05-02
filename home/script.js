@@ -22,6 +22,8 @@ let messageOpen;
 let screen = "home";
 let node = "2020";
 
+let warningCount = 0;
+
 
 document.addEventListener("DOMContentLoaded", function () {
     backgroundMusic.load();  // Manually load the audio file
@@ -43,30 +45,30 @@ document.addEventListener("DOMContentLoaded", function () {
         loadAboutPage;
     }
 
-    document.addEventListener("mousemove", (e) => {
-        tooltip.style.left = e.clientX - e.clientX / 10 + "px"; // slightly offset from cursor
-        tooltip.style.top = e.clientY + 12 + "px";
-    });
-    navButtonArray.forEach((button) => {
-        button.addEventListener("mouseover", () => {
-            tooltip.innerHTML = "let's stay here";
-            tooltip.style.opacity = 1;
-        })
-        button.addEventListener("mouseleave", () => {
-            tooltip.style.opacity = "0";
-        });
+    // document.addEventListener("mousemove", (e) => {
+    //     tooltip.style.left = e.clientX - e.clientX / 10 + "px"; // slightly offset from cursor
+    //     tooltip.style.top = e.clientY + 12 + "px";
+    // });
+    // navButtonArray.forEach((button) => {
+    //     button.addEventListener("mouseover", () => {
+    //         tooltip.innerHTML = "let's stay here";
+    //         tooltip.style.opacity = 1;
+    //     })
+    //     button.addEventListener("mouseleave", () => {
+    //         tooltip.style.opacity = "0";
+    //     });
 
-    });
+    // });
 
 
 
-    mailbox.addEventListener("mouseover", () => {
-        tooltip.innerHTML = mailboxAlert;
-        tooltip.style.opacity = 1;
-    })
-    mailbox.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = "0";
-    });
+    // mailbox.addEventListener("mouseover", () => {
+    //     tooltip.innerHTML = mailboxAlert;
+    //     tooltip.style.opacity = 1;
+    // })
+    // mailbox.addEventListener("mouseleave", () => {
+    //     tooltip.style.opacity = "0";
+    // });
     mailbox.addEventListener("click", () => {
         mailboxAlert = "no unread messages";
         mailbox.classList.remove("alert");
@@ -121,6 +123,9 @@ function loadHomePage() {
     console.log(folderNames)
     if (node == "2020") {
         folderNames.folderName2.innerHTML = "re_entry_log??_MISSING.emote";
+        folderNames.folderName2.addEventListener("click", () => {
+            window.open('../chain/index.html', '_blank').focus()
+        })
         folderNames.folderName3.innerHTML = "[⬛]noentry";
         folderNames.folderName3.addEventListener("click", () => {
             openWarning()
@@ -135,6 +140,23 @@ function loadHomePage() {
         folderNames.folderName5.addEventListener("click", () => {
             window.open('../hksed/index.html', '_blank').focus()
         });
+        folderNames.folderName6.innerHTML = "[⬛]noentry";
+        folderNames.folderName6.addEventListener("click", () => {
+            if (warningCount == 0) {
+                openWarning2()
+                warningCount++;
+            }
+            else {
+                window.open('../slogan/index.html', '_blank').focus()
+
+            }
+        });
+        folderNames.folderName7.innerHTML = "_overwrite:☒.cfg";
+        folderNames.folderName7.addEventListener("click", () => {
+            window.open('../text/index.html', '_blank').focus()
+        });
+        // folderNames.folderName7.classList.add("glitch");
+        folderNames.folderName7.classList.add("jitter");
 
     }
 
@@ -414,7 +436,21 @@ function typeText(text) {
 
 function openWarning() {
     let warningMessage = document.getElementById("warningMessage");
-    warningMessage.innerHTML = "Memory ID: [REDACTED]<br> Status: <strong>Inaccessible</strong><br>Reason: Insufficient traversal depth.<br>Action Required: Navigate related memory nodes to unlock."
+    warningMessage.innerHTML = "Memory ID: [REDACTED]birthday<br> Status: <strong>Inaccessible</strong><br>Reason: Insufficient traversal depth.<br>Action Required: Navigate related memory nodes for alternative access."
+    document.getElementById("warningBox").style.visibility = "visible";
+    backgroundOverlay.style.opacity = "0.5";
+    //     warningMessage.addEventListener("mouseover", () => {
+    //         tooltip.innerHTML = "need to do some digging first...";
+    //         tooltip.style.opacity = 1;
+    //     })
+    //     warningMessage.addEventListener("mouseleave", () => {
+    //         tooltip.style.opacity = "0";
+    //     });
+}
+
+function openWarning2() {
+    let warningMessage = document.getElementById("warningMessage");
+    warningMessage.innerHTML = "Memory ID: [REDACTED]<br> Status: <strong>Inaccessible</strong><br>Reason: Just don't look!!!!<br>Action Required: Stay away. Do NOT click again."
     document.getElementById("warningBox").style.visibility = "visible";
     backgroundOverlay.style.opacity = "0.5";
     //     warningMessage.addEventListener("mouseover", () => {

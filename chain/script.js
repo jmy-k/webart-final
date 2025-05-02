@@ -2,39 +2,39 @@
 const columns = document.querySelectorAll('.column');
 
 let lavender = document.createElement('img');
-lavender.src = "src/lavender.png";
+lavender.src = "src/lavender1.png";
 lavender.id = "lavender";
 lavender.className = "smallImage"
 
 let watch = document.createElement('img');
-watch.src = "src/watch.png";
+watch.src = "src/watch1.png";
 watch.id = "watch";
 watch.className = "smallImage"
 
 
 let skates = document.createElement('img');
-skates.src = "src/skates.png";
+skates.src = "src/skates1.png";
 skates.id = "skates";
 skates.className = "smallImage"
 
 
 let hair = document.createElement('img');
-hair.src = "src/hair.png";
+hair.src = "src/hair1.png";
 hair.id = "hair";
 hair.className = "smallImage"
 
 let medicine = document.createElement('img');
-medicine.src = "src/medicine.png";
+medicine.src = "src/medicine1.png";
 medicine.id = "medicine";
 medicine.className = "smallImage"
 
 let bag = document.createElement('img');
-bag.src = "src/bag.png";
+bag.src = "src/bag1.png";
 bag.id = "bag";
 bag.className = "smallImage"
 
 let book = document.createElement('img');
-book.src = "src/book.png";
+book.src = "src/book1.png";
 book.id = "book";
 book.className = "smallImage"
 
@@ -56,12 +56,12 @@ columns.forEach(column => {
     cells.forEach(cell => {
         // Create a handle to resize horizontally (at the right side of the cell)
         const horizontalHandle = document.createElement('div');
-        horizontalHandle.className = "horizontalHandle";
+        horizontalHandle.className = "horizontalHandle handleBorder";
         cell.style.position = 'relative';
         cell.appendChild(horizontalHandle);
 
         const verticalHandle = document.createElement('div');
-        verticalHandle.className = "verticalHandle";
+        verticalHandle.className = "verticalHandle handleBorder";
         cell.appendChild(verticalHandle);
 
 
@@ -165,11 +165,13 @@ chain14.addEventListener("click", function () {
 
 chain6.addEventListener("click", function () {
     chain6.classList.remove("show");
+    cell6.appendChild(book)
     chain13.classList.add("show");
 });
 
 chain13.addEventListener("click", function () {
     chain13.classList.remove("show");
+    cell6.removeChild(book)
     chain6.classList.add("show");
 });
 

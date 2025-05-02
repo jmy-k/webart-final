@@ -96,7 +96,21 @@ body {
     padding: 2em;
 }
 
+#overlay {
+    position: absolute;
+    top: 0;
+    opacity: 0.1;
 
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+
+    background-image: url('../src/dither.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: repeat;
+    z-index: 10;
+}
 
 #chatbox,
 select {
