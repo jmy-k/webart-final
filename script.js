@@ -123,7 +123,7 @@ function loadScreenLogin() {
         tooltip.style.opacity = 0;
         clearMainScreen()
         // loadScreenWelcome();
-        window.open("./home/home.html", "_blank");
+        window.open("./home/home.html");
     });
     // goButton.addEventListener("mouseover", () => {
     //     tooltip.innerHTML = "just a peek...";
